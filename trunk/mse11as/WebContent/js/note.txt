@@ -1,0 +1,2 @@
+
+'js' folder is optional, if we use javascript, folder status will change to required !
