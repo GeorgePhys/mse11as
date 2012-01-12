@@ -5,7 +5,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-	<link href="../css/global.css" type="text/css" rel="stylesheet" />
+	<link href="#{facesContext.externalContext.requestContextPath}/css/global.css" type="text/css" rel="stylesheet" />
+		<link href="#{facesContext.externalContext.requestContextPath}/css/administration.css" type="text/css" rel="stylesheet" />
 	<title><ui:insert name="title"></ui:insert></title>
 </h:head>
 <body>
@@ -20,6 +21,11 @@
 			</ul>
 			<div id="services">
 			<ul>
+			<li><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/index.jsf">
+					<img src="#{facesContext.externalContext.requestContextPath}/images/ico4.PNG" /><br/>
+					<span>Administration</span>
+					</a>
+				</li>
 				<li><a href="">
 					<img src="#{facesContext.externalContext.requestContextPath}/images/ico1.PNG" /><br/>
 					<span>Plan and Chart</span>
@@ -35,11 +41,6 @@
 					<span>Resources</span>
 					</a>
 				</li>
-				<li><a href="">
-					<img src="#{facesContext.externalContext.requestContextPath}/images/ico4.PNG" /><br/>
-					<span>Administration</span>
-					</a>
-				</li>
 			</ul>
 		</div>
 		<div class="login"><a href="">Login</a> <span>or</span> <a href="">Registration</a></div>
@@ -48,18 +49,7 @@
 		
 		<div id="main">
 			<div id="left_navigation">
-			 <ul class="sub_navi">
-				<li class="naviTitle">Атестиращ служител</li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">резултати от тестове</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">създай тест</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">редактирай тест</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">резултати от тестове</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">създай тест</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">редактирай тест</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">резултати от тестове</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">създай тест</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">редактирай тест</a></li>
-			 </ul>
+				<ui:insert name="navigationLeft"></ui:insert>
 			</div> 
 			<div id="content">
 				<ui:insert name="body"></ui:insert>
