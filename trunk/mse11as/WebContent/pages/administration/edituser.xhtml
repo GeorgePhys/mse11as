@@ -1,0 +1,141 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/pages/templates/template.xhtml">
+	<h:outputStylesheet>
+        .ecol1 {
+        vertical-align: top;
+        padding-right: 25px
+        }
+ 
+        .ecol2 {
+        vertical-align: top;
+        border-left: #ACBECE 1px solid;
+        padding-left: 10px
+        }
+ 
+        .rich-calendar-tool-btn {
+        font-family: Arial, Verdana;
+        }
+    </h:outputStylesheet>
+	<ui:define name="title">Administration | Edit User</ui:define>
+
+	<ui:define name="navigationLeft">
+		<ul class="sub_navi">
+			<li class="naviTitle">Потребители</li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="#{facesContext.externalContext.requestContextPath}/pages/administration/adduser.jsf">Добави
+					потребител</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a>Редактирай
+					потребител</a></li>
+		</ul>
+		<ul class="sub_navi">
+			<li class="naviTitle">Групи</li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Добави група</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Редактирай група</a></li>
+		</ul>
+		<ul class="sub_navi">
+			<li class="naviTitle">Роли и рангове</li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Добави роля или ранг</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Редактирай роля или ранг</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Създай слисък с роли или рангове</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Редактирай списък с роли или рангове</a></li>
+		</ul>
+		<ul class="sub_navi">
+			<li class="naviTitle">Други</li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Смяна на парола</a></li>
+			<li><img
+				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
+				href="">Търсене</a></li>
+		</ul>
+	</ui:define>
+
+	<ui:define name="body">
+		<div id="administration_main">
+			<h1>
+				Администрация <span>: Редактирай Потребител</span>
+			</h1>
+			<div class="notesForm"></div>
+			<h:form>
+				<rich:dataTable id="auction" style="width:100%;" value="" var=""
+					rows="10">
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Име" />
+						</f:facet>
+						<h:outputText id="fullName" value="John" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Фамилия" />
+						</f:facet>
+						<h:outputText id="username" value="Doe">
+						</h:outputText>
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Ниво" />
+						</f:facet>
+
+						<h:outputText value="Администратор" />
+
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Дата на регистрация" />
+						</f:facet>
+
+						<h:outputText value="12/01/2011" />
+
+					</rich:column>
+
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Потребителско име" />
+						</f:facet>
+
+						<h:outputText value="j.doe90" />
+
+					</rich:column>
+					<rich:column style="text-align:center; width:50px;">
+						<f:facet name="header">
+							<h:outputText value="Действие" />
+						</f:facet>
+
+						<a4j:commandLink value="">
+							<h:graphicImage style="width:40%; margin-right:10px;;"
+								value="/images/edit.PNG" />
+						</a4j:commandLink>
+						<a4j:commandLink value="">
+							<h:graphicImage style="width:40%; " value="/images/delete.PNG" />
+						</a4j:commandLink>
+					</rich:column>
+
+					<f:facet name="footer">
+						<!--  <rich:datascroller for="auction" maxPages="5" /> -->
+					</f:facet>
+				</rich:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+

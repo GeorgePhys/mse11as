@@ -1,8 +1,10 @@
-
 .rf-p{
 	margin-top:20px;
 }
-
+#administration_main .rf-dt-shdr-c{
+	background-image: url("/mse11as/rfRes/gradientA.png.jsf?db=eAFjZJBjZDBiZBBh!H8!IoLx!wQGBgYmACkLBIk_&ln=org.richfaces.images");
+	color:#ffffff;
+}
 #administration_main{
 	font-size:13px;
 	font-weight:bold;
