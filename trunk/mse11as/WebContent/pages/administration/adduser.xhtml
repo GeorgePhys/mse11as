@@ -51,46 +51,89 @@
 	<ui:define name="body">
 		<div id="administration_main">
 		<h1>Администрация <span>: Добави Потребител</span></h1>
+		<div class="notesForm">
+			<p>- Полетата започващи с <span>*</span>, са задължителни !</p>
+		</div>
 		<h:form>
        			<rich:panel id="adduserPan">
             <f:facet name="header">
-                <h:outputText value="User Details Panel" />
+                <h:outputText value="Потребителска информация" />
             </f:facet>
             <table>
             	<tr>
-            		<td>Име на потребител</td>
+            		<td><span>*</span> Име на потребител</td>
             		<td><h:inputText value="" /> </td>
             	</tr>
             	<tr>
-            		<td>Фамилия на потребител</td>
+            		<td>Презиме на потребител</td>
             		<td><h:inputText value="" /> </td>
             	</tr>
             	<tr>
-            		<td>Дата на раждане</td>
+            		<td><span>*</span> Фамилия на потребител</td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+            	<tr>
+            		<td><span>*</span> Дата на раждане</td>
             		<td>
-            		 <rich:calendar value="#{calendarBean.selectedDate}" id="calendar" locale="#{calendarBean.locale}"
-                    	 popup="true" datePattern="#{calendarBean.pattern}"
-                    	 showApplyButton="#{calendarBean.showApply}" cellWidth="24px" cellHeight="22px" style="width:200px"
-                   		 disabled="#{calendarBean.disabled}">
-                	</rich:calendar>
+                    <rich:calendar value="#{calendarBean.selectedDate}"
+                        locale="#{calendarBean.locale}"
+                        popup="true"
+                        datePattern="#{calendarBean.pattern}"
+                        cellWidth="24px" cellHeight="22px" style="width:200px;" />
             		</td>
             	</tr>
             	<tr>
-            		<td>Фамилия на потребител</td>
+            		<td><span>*</span> Email</td>
             		<td><h:inputText value="" /> </td>
             	</tr>
-            
-            
+            	<tr>
+            		<td><span>*</span> Адрес </td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+            	<tr>
+            		<td><span>*</span> Град</td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+            	<tr>
+            		<td><span>*</span> Страна </td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+           		 <tr>
+            		<td>Телефон</td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
             </table>
-            <a4j:commandButton styleClass="btnSubmitUserAdd" value="Submit" type="button"  />
-            <a4j:outputPanel ajaxRendered="true">
-                <h:outputText  id="out"  />
-            </a4j:outputPanel>
-        </rich:panel>
-       				
-					
-			        			
-       			
+  	      </rich:panel>
+    		<rich:panel id="adduserPan2">
+            <f:facet name="header">
+                <h:outputText value="Акаунт" />
+            </f:facet>
+					<table>
+            	<tr>
+            		<td class="sF"><span>*</span> Потребителско име</td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+            	<tr>
+            		<td class="sF"><span>*</span> Парола</td>
+            		<td><h:inputSecret value="" /> </td>
+            	</tr>   			
+       			<tr>
+            		<td class="sF"><span>*</span> Потвърди парола</td>
+            		<td><h:inputSecret value="Ok" /> </td>
+            	</tr> 
+            	<tr>
+            		<td class="sF"><span>*</span> Потвърди парола</td>
+            		<td>
+            		<h:selectOneMenu id="subscriptions" value="">
+  					 <f:selectItem id="item1" itemLabel="Администратор" itemValue="a" />
+ 					 <f:selectItem id="item2" itemLabel="Атестиращ служител" itemValue="b" />
+ 					 <f:selectItem id="item3" itemLabel="Атестиран служител" itemValue="c" />
+					</h:selectOneMenu>
+            		 </td>
+            	</tr> 
+            	</table>
+            	</rich:panel>
+            	<a4j:commandButton styleClass="btnSubmitUserAdd" value="Създай потребител" type="button"  />
 		</h:form>
 		
 		</div>
