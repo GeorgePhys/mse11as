@@ -1,8 +1,39 @@
-#adduserPan{
-	margin-top:10px;
-	width:100%;
+
+.rf-p{
+	margin-top:20px;
 }
-.btnSubmitUserAdd {
-	width:100px;
+
+#administration_main{
+	font-size:13px;
+	font-weight:bold;
+}
+#administration_main table{
+	margin-left: auto;
+	margin-right: auto;
+}
+#administration_main table td{
+	padding-top:10px;
+	padding-right:20px;
+}
+#administration_main table .sF{
+	padding-right:20px;
+}
+#administration_main input{
+	height:20px;
+	color:#252525;
+}
+#administration_main span{
+	color: #f17e02;
+}
+#administration_main .btnSubmitUserAdd {
+	width:120px;
 	height: 28px;
+	color:#ffffff;
 }
+.notesForm{
+	padding-top:20px;
+	padding-bottom:20px;
+	font-weight:normal;
+	text-align:left;
+}
+
