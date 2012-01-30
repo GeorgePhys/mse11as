@@ -24,18 +24,61 @@
 	height:20px;
 	color:#252525;
 }
-#administration_main span{
+#administration_main span{ 
 	color: #f17e02;
 }
 #administration_main .btnSubmitUserAdd {
+	margin-top: 5px;
 	width:120px;
 	height: 28px;
 	color:#ffffff;
 }
 .notesForm{
-	padding-top:20px;
-	padding-bottom:20px;
+	padding-top:10px;
 	font-weight:normal;
 	text-align:left;
 }
 
+#addGroup .img{
+	width: 20%;
+}
+#addGroup h2{
+	color: #c0c0c0;
+	font-size: 22px;
+}
+#addGroup input[type="checkbox"]{
+	vertical-align: middle;
+}
+.groupPrivil td, .groupPrivil{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.groupPrivil {
+	padding-top:5px;
+	padding-bottom: 20px;
+}
+#addGroup td{
+	padding-right: 5px;
+}
+table td{
+	padding-top: 5px;
+}
+
+.specificLabel {
+    position:absolute;
+    top: 84px;
+    left: 28px;
+}
+#addGroup .btnSubmitUserAdd {
+	margin-top: 5px;
+	width:120px;
+	height: 28px;
+	color:#ffffff;
+}
+#addGroup .txtRight {
+	text-align: right;
+}
+#addGroup input[type='text']{
+	height:20px;
+	width: 392px;
+}
