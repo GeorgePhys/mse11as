@@ -1,0 +1,92 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/pages/templates/template.xhtml"> 
+      
+<ui:define name="title">Administration | Add Group</ui:define>
+<ui:define name="navigationLeft">
+		 <ul class="sub_navi">
+				<li class="naviTitle">Потребители</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a >Добави потребител</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/edituser.jsf">Редактирай потребител</a></li>
+			 </ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Групи</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Добави група</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/editgroup.jsf">Редактирай група</a></li>
+		</ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Роли и рангове</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Добави роля или ранг</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Редактирай роля или ранг</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Създай слисък с роли или рангове</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Редактирай списък с роли или рангове</a></li>
+		</ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Други</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Смяна на парола</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/changepassword.jsf">Търсене</a></li>
+		</ul>
+	</ui:define>
+<ui:define name="body">
+<h1>Администрация <span>: Добави Група</span></h1>
+<div id="addGroup">
+ 		<rich:panel header="Данни за групата" style="position: relative;">
+ 			
+ 				<table>
+            	<tr>
+            		<td class="txtRight"><span>*</span>Име на група</td>
+            		<td><h:inputText value="" /> </td>
+            	</tr>
+            	<tr>
+            		<td class="txtRight" style="position:relative"><span class="specificLabel">* Описание</span></td>
+            		<td><h:inputTextarea  value="" cols="60" rows="10" /> </td>
+            	</tr>
+            	</table>
+            	</rich:panel>
+            	<rich:panel header="Привилегии">
+            	
+            	<h2>Административни привилегии</h2>
+                	<table class="groupPrivil">
+                	
+                		<tr>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                		</tr>
+                		<tr>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
+                		</tr>
+                		</table>
+                	<h2>Справки и статистики - привилегии</h2>
+                	<table class="groupPrivil">
+                		<tr>
+                			<td><h:selectBooleanCheckbox value="" /> Генериране на справка </td>
+                			<td><h:selectBooleanCheckbox value="" /> Назначаване на справка </td>
+                			<td></td>
+                		</tr>
+                		</table>
+                		<h2>План и график - привилегии</h2>
+                		<table class="groupPrivil">
+                		<tr>
+                			<td><h:selectBooleanCheckbox value="" /> Създаване на план </td>
+                			<td><h:selectBooleanCheckbox value="" /> Редактиране на план </td>
+                			<td><h:selectBooleanCheckbox value="" /> Изтриване на план </td>
+                		</tr>
+                		<tr>
+                			<td><h:selectBooleanCheckbox value="" /> Създаване на график </td>
+                			<td><h:selectBooleanCheckbox value="" /> Редактиране на график </td>
+                			<td><h:selectBooleanCheckbox value="" /> Изтриване на график </td>
+                		</tr>
+            	</table>
+         
+</rich:panel>
+			<a4j:commandButton styleClass="btnSubmitUserAdd" value="Създай група" type="button"  />
+   </div>
+</ui:define>
+</ui:composition>
