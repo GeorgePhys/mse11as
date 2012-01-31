@@ -38,10 +38,10 @@
 			<li class="naviTitle">Групи</li>
 			<li><img
 				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
-				href="">Добави група</a></li>
+				href="#{facesContext.externalContext.requestContextPath}/pages/administration/addgroup.jsf">Добави група</a></li>
 			<li><img
 				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
-				href="">Редактирай група</a></li>
+				href="#{facesContext.externalContext.requestContextPath}/pages/administration/editgroup.jsf">Редактирай група</a></li>
 		</ul>
 		<ul class="sub_navi">
 			<li class="naviTitle">Роли и рангове</li>
@@ -65,7 +65,7 @@
 				href="">Смяна на парола</a></li>
 			<li><img
 				src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a
-				href="">Търсене</a></li>
+				href="#{facesContext.externalContext.requestContextPath}/pages/administration/changepassword.jsf">Търсене</a></li>
 		</ul>
 	</ui:define>
 
@@ -74,7 +74,6 @@
 			<h1>
 				Администрация <span>: Редактирай Потребител</span>
 			</h1>
-			<div class="notesForm"></div>
 			<h:form>
 				<rich:dataTable id="auction" style="width:100%;" value="" var=""
 					rows="10">
