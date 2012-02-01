@@ -20,7 +20,7 @@
 #administration_main table .sF{
 	padding-right:20px;
 }
-#administration_main input{
+#administration_main input, #addRole input{
 	height:20px;
 	color:#252525;
 }
@@ -33,20 +33,44 @@
 	height: 28px;
 	color:#ffffff;
 }
+.hint {
+	padding-top: 10px;
+	margin-bottom: -7px;
+	font-size: 9px;
+	color: #999999;
+}
 .notesForm{
 	padding-top:10px;
 	font-weight:normal;
 	text-align:left;
 }
 
+.rolePrivil table{
+	align: center;
+}
+.rf-tab-hdr-tabs  {
+	 background-image: url("/mse11as/rfRes/gradientA.png.jsf?db=eAFjZJBjZDBiZBBh!H8!IoLx!wQGBgYmACkLBIk_&ln=org.richfaces.images") !important;
+}
+.rf-tab-hdr-act.rf-tab-hdr-top, .rf-tab-hdr-inact.rf-tab-hdr-top {
+	background: #ffffff !important;
+}
+#addRole .txtRight{
+ 	display:inline;
+}
+#addRole table {
+	padding-bottom: 10px;
+}
 #addGroup .img{
 	width: 20%;
 }
-#addGroup h2{
-	color: #c0c0c0;
-	font-size: 22px;
+#addGroup h2, #addRole h2{
+	color: #d38908;
+	font-size: 16px;
 }
-#addGroup input[type="checkbox"]{
+#addRole h2 {
+	padding-top:5px;
+}
+#addGroup input[type="checkbox"], #addRole input[type="checkbox"]{
 	vertical-align: middle;
 }
 .groupPrivil td, .groupPrivil{
@@ -57,7 +81,7 @@
 	padding-top:5px;
 	padding-bottom: 20px;
 }
-#addGroup td{
+#addGroup td, #addRole td{
 	padding-right: 5px;
 }
 table td{
