@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="admin/admin-template.xhtml"> 
+	<h:outputStylesheet>
+        .ecol1 {
+        vertical-align: top;
+        padding-right: 25px
+        }
+ 
+        .ecol2 {
+        vertical-align: top;
+        border-left: #ACBECE 1px solid;
+        padding-left: 10px
+        }
+ 
+        .rich-calendar-tool-btn {
+        font-family: Arial, Verdana;
+        }
+    </h:outputStylesheet>
+<ui:define name="title">Administration | Search</ui:define>
+<ui:define name="body">
+<div id="sr">
+	<h1>Администрация <span>: Търсене</span></h1>
+	<rich:panel>
+        <f:facet name="header">
+            <h:outputText value="Търсене"></h:outputText>
+        </f:facet>
+        <h:panelGrid>
+        <div id="searchVariants">
+           <p> <input type="checkbox"  />Роля</p>
+           <p> <input type="checkbox"  />Ранг</p>
+           <p> <input type="checkbox" />Група</p>
+           <p> <input type="checkbox"  />Отдел</p>
+           <p> <input type="checkbox"  />Потребител</p>
+        </div>
+       
+        <rich:inplaceInput defaultLabel="Кликнете за да въведете търсената дума" />
+       	 <div id="searchThis">
+        <a4j:commandButton styleClass="btnSubmitSearch" value="Търси" type="button"  />
+        </div>   
+        </h:panelGrid>
+    </rich:panel>
+</div>
+</ui:define>
+</ui:composition>
