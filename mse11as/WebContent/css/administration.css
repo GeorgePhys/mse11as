@@ -30,7 +30,7 @@ h1{
 #administration_main span{ 
 	color: #f17e02;
 }
-#administration_main .btnSubmitUserAdd {
+#administration_main .btnSubmitUserAdd,.btnSubmitSearch {
 	margin-top: 5px;
 	width:120px;
 	height: 28px;
@@ -47,7 +47,13 @@ h1{
 	font-weight:normal;
 	text-align:left;
 }
-
+#j_idt13Input{
+	height:30px !important;
+	font-size: 15px;
+}
+#j_idt13Label{
+	font-size: 15px !important;
+}
 .rolePrivil table{
 	align: center;
 }
@@ -111,4 +117,32 @@ table td{
 #addGroup input[type='text']{
 	height:20px;
 	width: 392px;
+}
+#sr {
+	position: relative;
+	width: 100%;
+}
+#searchVariants {
+	width:100%;
+	font-size: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 60px;
+}
+#searchVariants p{
+	display:inline;
+	vertical-align: middle;	
+	margin-right: 20px;
+	color: #b63509;
+}
+#searchVariants p input[type="checkbox"]{
+	margin-right: 5px;
+}
+#sr #j_idt14 {
+	position:absolute;
+	top:150px;
+	right: 20px;
+}
+#j_idt13{
+	margin-left: 50px;
 }
