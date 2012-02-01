@@ -184,6 +184,7 @@ h1 a:hover, h2 a:hover {
 #content{
 	width:72%;
 	float:left;
+	height: 100%;
 	margin-top:30px;
 	margin-left:20px;
 }

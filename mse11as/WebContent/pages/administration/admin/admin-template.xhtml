@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<link href="#{facesContext.externalContext.requestContextPath}/css/global.css" type="text/css" rel="stylesheet" />
+		<link href="#{facesContext.externalContext.requestContextPath}/css/administration.css" type="text/css" rel="stylesheet" />
+	<title><ui:insert name="title"></ui:insert></title>
+</h:head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<a id="logo" href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/logo.jpg" /></a>
+			<ul id="top_navi">
+				<li><a href="#{facesContext.externalContext.requestContextPath}/pages/home.jsf">+ Home</a></li>
+				<li><a href="">+ About</a></li>
+				<li><a href="">+ FAQ</a></li>
+				<li><a href="">+ Contacts</a></li>
+			</ul>
+			<div id="services">
+			<ul>
+			<li><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/index.jsf">
+					<img src="#{facesContext.externalContext.requestContextPath}/images/ico4.PNG" /><br/>
+					<span>Administration</span>
+					</a>
+				</li>
+				<li><a href="">
+					<img src="#{facesContext.externalContext.requestContextPath}/images/ico1.PNG" /><br/>
+					<span>Plan and Chart</span>
+					</a>
+				</li>
+				<li><a href="">
+					<img src="#{facesContext.externalContext.requestContextPath}/images/ico2.PNG" /><br/>
+					<span>Plan And Chart</span>
+					</a>
+				</li>
+				<li><a href="">
+					<img src="#{facesContext.externalContext.requestContextPath}/images/ico3.PNG" /><br/>
+					<span>Resources</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="login"><a href="">Login</a> <span>or</span> <a href="">Registration</a></div>
+			
+		</div>
+		
+		<div id="main">
+			<div id="left_navigation">
+				<ul class="sub_navi">
+				<li class="naviTitle">Потребители</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/adduser.jsf">Добави потребител</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/edituser.jsf">Редактирай потребител</a></li>
+			 </ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Групи, Отдел, Звено</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/addgroup.jsf">Добави група/отдел</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/editgroup.jsf">Редактирай група/отдел</a></li>
+		</ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Роли, Рангове, Звена</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/addrole.jsf">Добави роля, ранг, звено</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/editrole.jsf">Редактирай роля или ранг</a></li>
+		</ul>
+		<ul class="sub_navi">
+				<li class="naviTitle">Други</li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/changepassword.jsf">Смяна на парола</a></li>
+				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/search.jsf">Търсене</a></li>
+		</ul>
+			</div> 
+			<div id="content">
+				<ui:insert name="body"></ui:insert>
+			</div>
+		</div>
+		<div id="footer">
+			<p class="copy"> 2012 A - SYS</p> 
+			<div id="siteMap">
+				<img src="#{facesContext.externalContext.requestContextPath}/images/logo-footer.jpg" />
+			</div>
+			<div id="mainMenu">
+				<h3>General Navigation</h3>
+				<a href="">A-System Home</a><br />
+				<a href="">A-System About</a><br />
+				<a href="">A-System FAQ</a><br />
+				<a href="">A-System dasdas</a><br />
+			</div>
+			<div id="otherMenu">
+				<h3>Other Navigation</h3>
+				<a href="">A-System other1</a><br />
+				<a href="">A-System other2</a><br />
+				<a href="">A-System other3</a><br />
+				<a href="">A-System other4</a><br />
+			</div>
+			<div id="otherMenu1">
+				<h3>Other Navigation</h3>
+				<a href="">A-System other1</a><br />
+				<a href="">A-System other2</a><br />
+				<a href="">A-System other3</a><br />
+				<a href="">A-System other4</a><br />
+			</div>
+		</div>
+	</div>
+</body>
+</html>

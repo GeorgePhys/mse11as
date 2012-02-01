@@ -1,36 +1,12 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      template="/pages/templates/template.xhtml"> 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="admin/admin-template.xhtml"> 
       
 <ui:define name="title">Administration | Add Group</ui:define>
-<ui:define name="navigationLeft">
-		 <ul class="sub_navi">
-				<li class="naviTitle">Потребители</li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a >Добави потребител</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/edituser.jsf">Редактирай потребител</a></li>
-			 </ul>
-		<ul class="sub_navi">
-				<li class="naviTitle">Групи</li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Добави група</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/editgroup.jsf">Редактирай група</a></li>
-		</ul>
-		<ul class="sub_navi">
-				<li class="naviTitle">Роли и рангове</li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/addrole.jsf">Добави роля или ранг</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/editrole.jsf">Редактирай роля или ранг</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Създай слисък с роли или рангове</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Редактирай списък с роли или рангове</a></li>
-		</ul>
-		<ul class="sub_navi">
-				<li class="naviTitle">Други</li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="#{facesContext.externalContext.requestContextPath}/pages/administration/changepassword.jsf">Смяна на парола</a></li>
-				<li><img src="#{facesContext.externalContext.requestContextPath}/images/listIco.PNG" /><a href="">Търсене</a></li>
-		</ul>
-	</ui:define>
 <ui:define name="body">
 <h1>Администрация <span>: Добави Група</span></h1>
 <div id="addGroup">

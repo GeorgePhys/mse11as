@@ -1,7 +1,10 @@
+h1{
+	padding-bottom: 5px;
+}
 .rf-p{
 	margin-top:20px;
 }
-#administration_main .rf-dt-shdr-c{
+#administration_main .rf-dt-shdr-c, #editRole .rf-dt-shdr-c{
 	background-image: url("/mse11as/rfRes/gradientA.png.jsf?db=eAFjZJBjZDBiZBBh!H8!IoLx!wQGBgYmACkLBIk_&ln=org.richfaces.images");
 	color:#ffffff;
 }
@@ -53,6 +56,9 @@
 }
 .rf-tab-hdr-act.rf-tab-hdr-top, .rf-tab-hdr-inact.rf-tab-hdr-top {
 	background: #ffffff !important;
+}
+#addRole {
+	margin-bottom: 120px;
 }
 #addRole .txtRight{
  	display:inline;
