@@ -73,3 +73,7 @@ textarea, input[type="text"], input[type="password"], select {
 	height: 28px;
 	color:#ffffff;
 }
+#editTest .rf-dt-shdr-c, #editRole .rf-dt-shdr-c{
+	background-image: url("/mse11as/rfRes/gradientA.png.jsf?db=eAFjZJBjZDBiZBBh!H8!IoLx!wQGBgYmACkLBIk_&ln=org.richfaces.images");
+	color:#ffffff;
+}

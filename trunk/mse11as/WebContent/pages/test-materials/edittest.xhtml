@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | Edit Test</ui:define>
+<ui:define name="body">
+<div id="editTest">
+<h1>Редактиране на тест</h1>
+
+<div id="editTest">
+			<h:form>
+				<rich:dataTable id="auction" style="width:100%;" value="" var=""
+					rows="10">
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Номер" />
+						</f:facet>
+						<h:outputText id="fullName" value="025654" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Заглавие" />
+						</f:facet>
+						<h:outputText id="username" value="CSS Ninjas">
+						</h:outputText>
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Ниво на трудност" />
+						</f:facet>
+
+						<h:outputText value="Ниво 3" />
+
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Борй въпроси" />
+						</f:facet>
+
+						<h:outputText value="4" />
+
+					</rich:column>
+
+					<rich:column style="text-align:center; width:50px;">
+						<f:facet name="header">
+							<h:outputText value="Действие" />
+						</f:facet>
+
+						<a4j:commandLink value="">
+							<h:graphicImage style="width:40%; margin-right:10px;;"
+								value="/images/edit.PNG" />
+						</a4j:commandLink>
+						<a4j:commandLink value="">
+							<h:graphicImage style="width:40%; " value="/images/delete.PNG" />
+						</a4j:commandLink>
+					</rich:column>
+
+					<f:facet name="footer">
+						<!--  <rich:datascroller for="auction" maxPages="5" /> -->
+					</f:facet>
+				</rich:dataTable>
+			</h:form>
+		</div>
+ </div>
+</ui:define>
+</ui:composition>
