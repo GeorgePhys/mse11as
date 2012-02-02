@@ -1,0 +1,75 @@
+input[type="text"]{
+	height:20px;
+	color:#252525;
+	width: 200px;
+}
+select {
+	height:18px;
+	color:#252525;
+}
+textarea, input[type="text"], input[type="password"], select {
+	background: #ffffff !important;
+}
+#test {
+	width:100%;
+	height: 500px;
+}
+#content {
+	height: 500px;
+}
+#test #j_idt9 {
+	height: 40px;
+	width: 120px;
+}
+#test{
+	position: relative;
+}
+#formTest {
+	position: absolute;
+	top: 50px;
+	left: 120px;
+	width: 500px;
+}
+#formTest2 {
+	position: relative;
+	margin-bottom: 100px;
+}
+#formTest2 .rf-tab-hdr-act.rf-tab-hdr-top,.rf-tab-hdr-inact.rf-tab-hdr-top,.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top,.rf-tab-hdr-brd{
+	background: none !important;
+	color:#000000;
+	font-style: bold;
+}
+#mt {
+	position: absolute;
+	top:50px;
+	left: 50px;
+}
+#formTest2 .rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top{
+	border-top: none;
+	border-left: none;
+	border-right:none;
+}
+#formTest td{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+.t {
+	text-align: right;
+}
+#formTest h1 {
+	font-style: normal;
+	color: #999999 !important;
+}
+#formTest .btnGenerate{
+	margin-top: 5px;
+	width:120px;
+	height: 28px;
+	color:#ffffff;
+}
+#formTest2 .btnSbm{
+	margin-top: 5px;
+	width:160px;
+	height: 28px;
+	color:#ffffff;
+}
