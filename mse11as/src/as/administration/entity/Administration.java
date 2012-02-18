@@ -31,4 +31,5 @@ public class Administration implements Serializable{
 		this.titleIssue = titleIssue;
 	}
 	  
+
 }
