@@ -7,11 +7,14 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * 
@@ -97,14 +100,6 @@ public class User extends as.entities.Entity implements Serializable {
 	this.email = email;
     }
 
-    public Set<Group> getGroups() {
-	return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-	this.groups = groups;
-    }
-
     public Set<UserProfile> getProfiles() {
 	return profiles;
     }
@@ -117,9 +112,52 @@ public class User extends as.entities.Entity implements Serializable {
     private String email;
 
     @OneToMany(mappedBy = "userID")
-    private Set<Group> groups;
-
-    @OneToMany(mappedBy = "userID")
     private Set<UserProfile> profiles;
 
+    public Set<PersonalTrainingSchedule> getPersonalTraningSchadule() {
+	return personalTraningSchadule;
+    }
+
+    public void setPersonalTraningSchadule(
+	    Set<PersonalTrainingSchedule> personalTraningSchadule) {
+	this.personalTraningSchadule = personalTraningSchadule;
+    }
+
+    public Set<UserAssignedTests> getUserAssignedTests() {
+	return userAssignedTests;
+    }
+
+    public void setUserAssignedTests(Set<UserAssignedTests> userAssignedTests) {
+	this.userAssignedTests = userAssignedTests;
+    }
+
+    public Set<AssignedAttestations> getAssignedAttestations() {
+	return assignedAttestations;
+    }
+
+    public void setAssignedAttestations(
+	    Set<AssignedAttestations> assignedAttestations) {
+	this.assignedAttestations = assignedAttestations;
+    }
+
+    public Group getGroup() {
+	return group;
+    }
+
+    public void setGroup(Group group) {
+	this.group = group;
+    }
+
+    @OneToMany(mappedBy = "userID")
+    private Set<PersonalTrainingSchedule> personalTraningSchadule;
+
+    @OneToMany(mappedBy = "userID")
+    private Set<UserAssignedTests> userAssignedTests;
+
+    @OneToMany(mappedBy = "userID")
+    private Set<AssignedAttestations> assignedAttestations;
+
+    @OneToOne(cascade = { CascadeType.ALL })
+    @JoinColumn(name = "groupID", nullable = false)
+    private Group group;
 }
