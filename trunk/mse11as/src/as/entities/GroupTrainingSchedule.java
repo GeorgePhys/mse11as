@@ -2,6 +2,7 @@ package as.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,13 +28,18 @@ public class GroupTrainingSchedule extends as.entities.Entity implements
     @Id
     @Column(columnDefinition = "Integer", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer groupTrainingSchID;
+
+    public Integer getGroupTrainingSchID() {
+	return groupTrainingSchID;
+    }
+
+    public void setGroupTrainingSchID(Integer groupTrainingSchID) {
+	this.groupTrainingSchID = groupTrainingSchID;
+    }
 
     @ManyToOne
     private Group groupID;
-
-    @ManyToOne
-    private Trainings trainingID;
 
     public Group getGroupID() {
 	return groupID;
@@ -40,14 +47,6 @@ public class GroupTrainingSchedule extends as.entities.Entity implements
 
     public void setGroupID(Group groupID) {
 	this.groupID = groupID;
-    }
-
-    public Trainings getTrainingID() {
-	return trainingID;
-    }
-
-    public void setTrainingID(Trainings trainingID) {
-	this.trainingID = trainingID;
     }
 
     public Date getbDate() {
@@ -64,6 +63,17 @@ public class GroupTrainingSchedule extends as.entities.Entity implements
 
     public void seteDate(Date eDate) {
 	this.eDate = eDate;
+    }
+
+    @OneToMany(mappedBy = "groupID")
+    private Set<Trainings> trainings;
+
+    public Set<Trainings> getTrainings() {
+	return trainings;
+    }
+
+    public void setTrainings(Set<Trainings> trainings) {
+	this.trainings = trainings;
     }
 
     @Temporal(TemporalType.TIMESTAMP)

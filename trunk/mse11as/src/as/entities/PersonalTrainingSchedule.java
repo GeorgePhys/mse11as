@@ -2,6 +2,7 @@ package as.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,23 +24,20 @@ public class PersonalTrainingSchedule extends as.entities.Entity implements
     @Id
     @Column(columnDefinition = "Integer", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer persTrainingSchID;
 
     @ManyToOne
     private User userID;
 
-    @ManyToOne
-    private Trainings trainingID;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date bDate;
 
-    public Integer getId() {
-	return id;
+    public Integer getPersTrainingSchID() {
+	return persTrainingSchID;
     }
 
-    public void setId(Integer id) {
-	this.id = id;
+    public void setPersTrainingSchID(Integer persTrainingSchID) {
+	this.persTrainingSchID = persTrainingSchID;
     }
 
     public User getUserID() {
@@ -47,14 +46,6 @@ public class PersonalTrainingSchedule extends as.entities.Entity implements
 
     public void setUserID(User userID) {
 	this.userID = userID;
-    }
-
-    public Trainings getTrainingID() {
-	return trainingID;
-    }
-
-    public void setTrainingID(Trainings trainingID) {
-	this.trainingID = trainingID;
     }
 
     public Date getbDate() {
@@ -72,6 +63,17 @@ public class PersonalTrainingSchedule extends as.entities.Entity implements
     public void seteDate(Date eDate) {
 	this.eDate = eDate;
     }
+
+    public Set<Trainings> getTrainings() {
+	return trainings;
+    }
+
+    public void setTrainings(Set<Trainings> trainings) {
+	this.trainings = trainings;
+    }
+
+    @OneToMany(mappedBy = "personalID")
+    private Set<Trainings> trainings;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date eDate;
