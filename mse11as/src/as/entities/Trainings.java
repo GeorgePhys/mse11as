@@ -4,13 +4,12 @@
 package as.entities;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  * @author Stefan Stefanov
@@ -24,14 +23,30 @@ public class Trainings extends as.entities.Entity implements Serializable {
     @GeneratedValue
     private Integer trainingID;
 
+    @ManyToOne
+    private GroupTrainingSchedule groupID;
+
+    public GroupTrainingSchedule getGroupID() {
+	return groupID;
+    }
+
+    public void setGroupID(GroupTrainingSchedule groupID) {
+	this.groupID = groupID;
+    }
+
+    public PersonalTrainingSchedule getPersonalID() {
+	return personalID;
+    }
+
+    public void setPersonalID(PersonalTrainingSchedule personalID) {
+	this.personalID = personalID;
+    }
+
+    @ManyToOne
+    private PersonalTrainingSchedule personalID;
+
     @Column(columnDefinition = "Varchar(150)")
     private String training;
-
-    @OneToMany(mappedBy = "trainingID")
-    private Set<PersonalTrainingSchedule> personalTrainingSchedule;
-
-    @OneToMany(mappedBy = "trainingID")
-    private Set<GroupTrainingSchedule> groupTrainingSchedule;
 
     public Integer getTrainingID() {
 	return trainingID;
