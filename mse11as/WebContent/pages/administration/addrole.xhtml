@@ -23,7 +23,7 @@
     </h:outputStylesheet>
 	<ui:define name="title">Добави роля или ранг</ui:define>
 	<ui:define name="body">
-	<h1>Администрация <span>: Добави роля или ранг</span></h1>
+	<h1>Администрация <span>: Добави роля, ранг, знание</span></h1>
 	<div id="addRole">
 		 <rich:tabPanel switchType="client">
         <rich:tab header="Добави роля" style="height: 300px;">
@@ -63,6 +63,7 @@
             	</tr>
             	</table>
             	</div>
+            	<a4j:commandButton styleClass="btnSubmit" value="Добави" type="button"  />
         </rich:tab>
         <rich:tab header="Добави ранг">
             <p>We are working hard on RichFaces 4.0 which will have full JSF 2 integration. That is not all though, here is
@@ -78,8 +79,23 @@
                 <li>Strict code clean-up and review.</li>
             </ul>
         </rich:tab>
-
+        <rich:tab header="Добави Знание">
+            <p>We are working hard on RichFaces 4.0 which will have full JSF 2 integration. That is not all though, here is
+                a summary of updates and features:</p>
+            <ul>
+                <li>Redesigned modular repository and build system.</li>
+                <li>Simplified Component Development Kit with annotations, faces-config extensions, advanced templates
+                    support and more..</li>
+                <li>Ajax framework improvements extending the JSF 2 specification.</li>
+                <li>Component review for consistency, usability, and redesign following semantic HTML principles where
+                    possible.</li>
+                <li>Both server-side and client-side performance optimization.</li>
+                <li>Strict code clean-up and review.</li>
+            </ul>
+        </rich:tab>
+        
     </rich:tabPanel>
+    
  </div>
 	</ui:define>
 	</ui:composition>

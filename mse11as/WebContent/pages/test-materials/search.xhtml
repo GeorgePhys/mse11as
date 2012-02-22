@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | Search Test/Materials</ui:define>
+<ui:define name="body">
+<h1>Търсене на тестове и материали</h1>
+<div id="searchTest">
+	<rich:panel>
+		<table>
+		<tr>
+			<td>
+				<h:selectOneMenu style="width:100px;" value="">
+					<f:selectItem itemLabel="Тестове" />
+					<f:selectItem itemLabel="Материали" />
+				</h:selectOneMenu>
+			</td>
+		</tr>
+		<tr>
+			<td>Въведи ключова дума: </td>
+			<td><h:inputText style="width:300px;" value="" /></td>
+			<td> <a4j:commandButton styleClass="searchTest2" value="Търсене" type="button"  /> </td>
+		</tr>
+		</table>
+	</rich:panel>
+</div>
+</ui:define>
+</ui:composition>

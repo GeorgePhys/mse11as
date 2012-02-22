@@ -24,7 +24,7 @@
 	<ui:define name="title">Промяна на роля или ранг</ui:define>
 	<ui:define name="body">
 	<div id="editRole">
-		<h1>Администрация <span>: Промяна на роля или ранг</span></h1>
+		<h1>Администрация <span>: Промяна на роля, ранг, знание</span></h1>
 			<h:form>
 				<rich:dataTable id="auction" style="width:100%;" value="" var=""
 					rows="10">
@@ -36,10 +36,16 @@
 					</rich:column>
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
-							<h:outputText value="Име на роля" />
+							<h:outputText value="Име" />
 						</f:facet>
 						<h:outputText id="username" value="CSS Ninjas">
 						</h:outputText>
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Тип" />
+						</f:facet>
+						<h:outputText  value="роля" />
 					</rich:column>
 					<rich:column style="text-align:center;">
 						<f:facet name="header">

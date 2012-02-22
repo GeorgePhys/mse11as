@@ -61,19 +61,53 @@ textarea, input[type="text"], input[type="password"], select {
 	font-style: normal;
 	color: #999999 !important;
 }
-#formTest .btnGenerate{
+#formTest .btnGenerate #viewTest .btnSearchTest{
 	margin-top: 5px;
 	width:120px;
 	height: 28px;
 	color:#ffffff;
 }
-#formTest2 .btnSbm{
+#formTest2 .btnSbm ,#searchTest .searchTest2{
 	margin-top: 5px;
 	width:160px;
 	height: 28px;
 	color:#ffffff;
 }
-#editTest .rf-dt-shdr-c, #editRole .rf-dt-shdr-c{
+#searchTest .searchTest2{
+	margin-top: 0px;
+	height:23px;
+}
+#editTest .rf-dt-shdr-c, #editRole .rf-dt-shdr-c, #viewTest .rf-dt-shdr-c, #editRole .rf-dt-shdr-c{
 	background-image: url("/mse11as/rfRes/gradientA.png.jsf?db=eAFjZJBjZDBiZBBh!H8!IoLx!wQGBgYmACkLBIk_&ln=org.richfaces.images");
 	color:#ffffff;
+}
+.viewTest td{
+	padding-right:10px;
+}
+.testQuestions {
+	padding-top:20px;
+	font-size:14px;
+	font-weight: bold;
+	color: #000000;
+}
+.testQuestions .answer {
+	padding-right:10px;
+	font-size:13px;
+	color:#c0c0c0;
+	padding-top:4px;
+}
+.testQuestions .cirrect {
+	color: #999999;
+}
+.wrong {
+	border: 1px solid red;
+}
+.correct {
+	color: #e19d0a;
+}
+.correctAnsw {
+	border: 1px solid #60c50f;
+}
+.question{
+	madding-top:10px;
 }

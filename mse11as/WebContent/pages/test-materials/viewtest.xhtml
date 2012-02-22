@@ -1,0 +1,105 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | View Test</ui:define>
+<ui:define name="body">
+<div id="viewTest1">
+	<div id="viewTest">
+     	<h2>CSS Тест 2</h2><span>атестиран служител: <b>Цветомир Димитров</b></span>
+     	<table class="viewTest">
+     		<tr>
+     			<td><b>Брой въпроси: </b> <span style="color:gray;">23</span></td>
+     			<td><b>Грешни: </b> <span style="color:red;">22</span></td>
+     			<td><b>Верни: </b> <span style="color:green;">1</span></td>
+     			<td><b>Брой точки: </b> <span style="color:gray;">2</span></td>
+     		</tr>
+     	</table> 
+     	<rich:panel header="Резултати от теста">
+     	<table class="testQuestions">
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 1: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (А)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer wrong">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 2: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (Б)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer wrong">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 3: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (Г)</span></td></tr>
+     		<tr>
+     			<td class="answer wrong">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 4: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (В)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer correctAnsw">В: Отговор 3</td>
+     			<td class="answer">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 5: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (В)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer wrong">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 6: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (В)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer wrong">Г: Отговор 4</td>
+     		</tr>
+     		<tr><td colspan="5"><br /></td></tr>
+     		<tr>
+     			<td colspan="3" class="question">Въпрос 7: Описание на въпроса. </td>
+     		</tr>
+     		<tr><td colspan="3"><span class="correct">Верен: (В)</span></td></tr>
+     		<tr>
+     			<td class="answer">A: Отговор 1</td>
+     			<td class="answer">Б: Отговор 2</td>
+     			<td class="answer">В: Отговор 3</td>
+     			<td class="answer wrong">Г: Отговор 4</td>
+     		</tr>
+     	</table> 
+     	</rich:panel>
+	</div>
+</div>
+</ui:define>
+</ui:composition>
