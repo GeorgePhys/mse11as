@@ -33,4 +33,8 @@ public class FileUploadService {
 	}
     }
 
+    public void Remove(File file) {
+	em.remove(file);
+    }
+
 }
