@@ -24,7 +24,7 @@ import as.services.FileUploadService;
  */
 @ManagedBean
 @SessionScoped
-public class FileUploadBean implements Serializable {
+public class FileUploadAction implements Serializable {
     private ArrayList<File> files = new ArrayList<File>();
 
     @EJB
@@ -41,11 +41,12 @@ public class FileUploadBean implements Serializable {
 	file.setLength(item.getData().length);
 	file.setName(item.getName());
 	file.setData(item.getData());
+	file = service.Save(file);
 	files.add(file);
-	service.Save(file);
     }
 
     public String clearUploadData() {
+	service.Clear(files);
 	files.clear();
 	return null;
     }

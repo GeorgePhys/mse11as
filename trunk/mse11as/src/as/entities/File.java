@@ -49,7 +49,7 @@ public class File extends as.entities.Entity implements Serializable {
     }
 
     public long getLength() {
-	return length;
+	return length / 1024;
     }
 
     public void setLength(long length) {
@@ -68,6 +68,6 @@ public class File extends as.entities.Entity implements Serializable {
     private String mime;
     @Column
     private long length;
-    @Column(columnDefinition = "BLOB")
+    @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] data;
 }
