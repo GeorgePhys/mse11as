@@ -26,7 +26,7 @@
 				<h:panelGrid columns="2" columnClasses="top,top">
 					<rich:fileUpload fileUploadListener="#{fileUploadAction.listener}"
 						id="upload" addLabel="Добави файл..." clearLabel="Изчисти" clearAllLabel="Изчисти всичко"
-						uploadLabel="Качи" doneLabel="Качен">
+						uploadLabel="Качи" doneLabel="Качен" >
 						<a4j:ajax event="uploadcomplete" execute="@none" render="info" />
 					</rich:fileUpload>
 					<h:panelGroup id="info">
@@ -44,6 +44,8 @@
 										<h:outputText value="#{file.name}" />
 										<h:outputText value="Размер(KB):" style="font-weight:bold"/>
 										<h:outputText value="#{file.length}" />
+										<h:commandLink value="Преглед" action="#{fileUploadAction.Download(file)}"/>
+										<h:commandLink value="Изтрий" action="#{fileUploadAction.Remove(file)}" />
 									</h:panelGrid>
 								</rich:panel>
 							</rich:dataGrid>

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import org.richfaces.event.FileUploadEvent;
 import org.richfaces.model.UploadedFile;
@@ -69,5 +71,29 @@ public class FileUploadAction implements Serializable {
 
     public void setFiles(ArrayList<File> files) {
 	this.files = files;
+    }
+
+    public void Remove(File file) {
+	files.remove(file);
+	service.Remove(file);
+    }
+
+    public void Download(File file) {
+	FacesContext facesContext = FacesContext.getCurrentInstance();
+	ExternalContext externalContext = facesContext.getExternalContext();
+	// externalContext
+	// .setResponseHeader("Content-Type", file.getContentType());
+	externalContext.setResponseHeader("Content-Length",
+		file.getData().length + "");
+	externalContext.setResponseHeader("Content-Disposition",
+		"attachment;filename=\"" + file.getName() + "\"");
+	try {
+	    externalContext.getResponseOutputStream().write(file.getData());
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	facesContext.responseComplete();
+
     }
 }
