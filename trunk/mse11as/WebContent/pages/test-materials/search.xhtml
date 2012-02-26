@@ -4,29 +4,76 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-    template="template/test-materials.xhtml"> 
-      
-<ui:define name="title">Administration | Search Test/Materials</ui:define>
-<ui:define name="body">
-<h1>Търсене на тестове и материали</h1>
-<div id="searchTest">
-	<rich:panel>
-		<table>
-		<tr>
-			<td>
-				<h:selectOneMenu style="width:100px;" value="">
-					<f:selectItem itemLabel="Тестове" />
-					<f:selectItem itemLabel="Материали" />
-				</h:selectOneMenu>
-			</td>
-		</tr>
-		<tr>
-			<td>Въведи ключова дума: </td>
-			<td><h:inputText style="width:300px;" value="" /></td>
-			<td> <a4j:commandButton styleClass="searchTest2" value="Търсене" type="button"  /> </td>
-		</tr>
-		</table>
-	</rich:panel>
-</div>
-</ui:define>
+	template="template/test-materials.xhtml">
+
+	<ui:define name="title">Administration | Search Test/Materials</ui:define>
+	<ui:define name="body">
+		<h1>Търсене на тестове и материали</h1>
+		<div id="searchTest">
+			<rich:panel>
+				<h:form>
+					<table>
+						<tr>
+							<td><h:selectOneMenu style="width:100px;"
+									value="#{materialsSearchAction.materialsType}">
+									<f:selectItem itemLabel="Тестове" />
+									<f:selectItem itemLabel="Материали" />
+								</h:selectOneMenu>
+								</td>
+						</tr>
+						<tr>
+							<td>Въведи ключова дума:</td>
+							<td><h:inputText style="width:300px;"
+									value="#{materialsSearchAction.serachWord}" /></td>
+							<td><h:commandButton styleClass="searchTest2"
+									value="Търсене" type="button"
+									action="#{materialsSearchAction.Search()}" /></td>
+						</tr>
+					</table>
+					<rich:dataTable id="auction" style="width:100%;"
+						value="#{materialsSearchAction.materials}" var="file" rows="10"
+						rendered="#{materialsSearchAction.size>0}">
+						<rich:column style="text-align:center;">
+							<f:facet name="header">
+								<h:outputText value="Номер" />
+							</f:facet>
+							<h:outputText id="id" value="#{file.id}" />
+						</rich:column>
+						<rich:column style="text-align:center;">
+							<f:facet name="header">
+								<h:outputText value="Заглавие" />
+							</f:facet>
+							<h:outputText id="name" value="#{file.name}">
+							</h:outputText>
+						</rich:column>
+						<rich:column style="text-align:center;">
+							<f:facet name="header">
+								<h:outputText value="Тип" />
+							</f:facet>
+							<h:outputText value="Файл" />
+						</rich:column>
+						<rich:column style="text-align:center;">
+							<f:facet name="header">
+								<h:outputText value="Размер" />
+							</f:facet>
+							<h:outputText value="#{file.length} KB" />
+						</rich:column>
+						<rich:column style="text-align:center; width:50px;">
+							<f:facet name="header">
+								<h:outputText value="Действие" />
+							</f:facet>
+							<h:commandLink value=""
+								action="#{fileDownloadAction.Download(file)}">
+								<h:graphicImage style="width:40%; margin-right:10px;;"
+									value="/images/download.PNG" />
+							</h:commandLink>
+						</rich:column>
+						<f:facet name="footer">
+							<!--  <rich:datascroller for="auction" maxPages="5" /> -->
+						</f:facet>
+					</rich:dataTable>
+				</h:form>
+			</rich:panel>
+		</div>
+	</ui:define>
 </ui:composition>

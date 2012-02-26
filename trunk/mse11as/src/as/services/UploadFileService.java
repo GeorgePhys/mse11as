@@ -18,7 +18,7 @@ import as.entities.File;
  */
 @Stateful
 // @Stateless
-public class FileUploadService {
+public class UploadFileService {
     @PersistenceContext(type = PersistenceContextType.EXTENDED)
     // @PersistenceContext
     private EntityManager em;
