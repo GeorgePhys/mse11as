@@ -26,13 +26,43 @@ public class Tests extends as.entities.Entity implements Serializable {
 
     @Column(columnDefinition = "Varchar(150)")
     private String testName;
-
+    
+    @Column(columnDefinition = "Varchar(150)")
+    private String description;
+    
     @OneToMany(mappedBy = "testID")
     private Set<TestQuestions> testQuestions;
 
     @OneToMany(mappedBy = "testID")
     private Set<UserAssignedTests> userAssignedTests;
+    
+    @Column(columnDefinition = "Integer")
+    private int numQuestions;
+    
+    @Column(columnDefinition = "Integer")
+    private int numAnswPerQuestion;
+    
+    @Column(columnDefinition = "Integer")
+    private int pointSystem;
+    
+    @Column(columnDefinition = "Integer")
+    private int level;
+    
+    @Column(columnDefinition = "Integer")
+    private int showResult;
+    
+    public int getShowResult() {
+		return showResult;
+	}
 
+	public void setShowResult(int showResult) {
+		this.showResult = showResult;
+	}
+
+	@Column(columnDefinition = "Varchar(150)")
+    private String msg;
+    
+    
     public Set<TestQuestions> getTestQuestions() {
 	return testQuestions;
     }
@@ -49,7 +79,47 @@ public class Tests extends as.entities.Entity implements Serializable {
 	this.testAnswers = testAnswers;
     }
 
-    @OneToMany(mappedBy = "testID")
+    public int getNumQuestions() {
+		return numQuestions;
+	}
+
+	public void setNumQuestions(int numQuestions) {
+		this.numQuestions = numQuestions;
+	}
+
+	public int getNumAnswPerQuestion() {
+		return numAnswPerQuestion;
+	}
+
+	public void setNumAnswPerQuestion(int numAnswPerQuestion) {
+		this.numAnswPerQuestion = numAnswPerQuestion;
+	}
+
+	public int getPointSystem() {
+		return pointSystem;
+	}
+
+	public void setPointSystem(int pointSystem) {
+		this.pointSystem = pointSystem;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	@OneToMany(mappedBy = "testID")
     private Set<TestAnswers> testAnswers;
 
     public Integer getTestID() {
@@ -69,14 +139,10 @@ public class Tests extends as.entities.Entity implements Serializable {
     }
 
     public String getDescription() {
-	return description;
-    }
+		return description;
+	}
 
-    public void setDescription(String description) {
+	public void setDescription(String description) {
 	this.description = description;
     }
-
-    @Column(columnDefinition = "Varchar(250)")
-    private String description;
-
 }
