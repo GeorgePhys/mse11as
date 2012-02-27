@@ -31,11 +31,10 @@ public class DownloadFileService {
 
     public ArrayList<File> Search(String str) {
 	System.out.println(str + "AAAAA");
-	ArrayList<File> listFiles = (ArrayList) em
-		.createQuery(
-			"SELECT f FROM File f WHERE f.id LIKE '%:id%' OR f.Name LIKE '%:name%'",
-			File.class).setParameter("id", str)
-		.setParameter("name", str).getResultList();
+	ArrayList<File> listFiles = (ArrayList) em.createQuery(
+		"SELECT f FROM File f WHERE f.id LIKE '%" + str
+			+ "%' OR f.Name LIKE '%" + str + "%'", File.class)
+		.getResultList();
 	return listFiles;
     }
 

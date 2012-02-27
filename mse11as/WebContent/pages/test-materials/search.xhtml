@@ -16,23 +16,21 @@
 						<tr>
 							<td><h:selectOneMenu style="width:100px;"
 									value="#{materialsSearchAction.materialsType}">
-									<f:selectItem itemLabel="Тестове" />
-									<f:selectItem itemLabel="Материали" />
-								</h:selectOneMenu>
-								</td>
+									<f:selectItems value="#{materialsSearchAction.types}" />
+								</h:selectOneMenu></td>
 						</tr>
 						<tr>
 							<td>Въведи ключова дума:</td>
 							<td><h:inputText style="width:300px;"
 									value="#{materialsSearchAction.serachWord}" /></td>
-							<td><h:commandButton styleClass="searchTest2"
-									value="Търсене" type="button"
-									action="#{materialsSearchAction.Search()}" /></td>
+							<td><a4j:commandButton styleClass="searchTest2"
+									value="Търсене" action="#{materialsSearchAction.Search()}"
+									render="table" /></td>
 						</tr>
 					</table>
-					<rich:dataTable id="auction" style="width:100%;"
-						value="#{materialsSearchAction.materials}" var="file" rows="10"
-						rendered="#{materialsSearchAction.size>0}">
+
+					<rich:dataTable id="table" style="width:100%;"
+						value="#{materialsSearchAction.materials}" var="file" rows="10">
 						<rich:column style="text-align:center;">
 							<f:facet name="header">
 								<h:outputText value="Номер" />
@@ -66,6 +64,10 @@
 								action="#{fileDownloadAction.Download(file)}">
 								<h:graphicImage style="width:40%; margin-right:10px;;"
 									value="/images/download.PNG" />
+							</h:commandLink>
+							<h:commandLink value=""
+								action="#{fileDownloadAction.Delete(file)}">
+								<h:graphicImage style="width:40%; " value="/images/delete.PNG" />
 							</h:commandLink>
 						</rich:column>
 						<f:facet name="footer">
