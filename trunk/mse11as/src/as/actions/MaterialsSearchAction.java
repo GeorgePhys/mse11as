@@ -15,15 +15,29 @@ import as.services.DownloadFileService;
 
 /**
  * @author Stefan Stefanov
- * @param <T>
  * @dFeb 26, 2012
  */
 @ManagedBean
 @SessionScoped
-public class MaterialsSearchAction<T> implements Serializable {
+public class MaterialsSearchAction implements Serializable {
     private ArrayList<File> materials = new ArrayList<File>();
     private String materialsType;
     private String serachWord;
+    private String[] types = new String[] { "Тестове", "Материали" };
+
+    // @PostConstruct
+    // public void init() {
+    // types.add(new SelectItem("Тестове"));
+    // types.add(new SelectItem("Материали"));
+    // }
+
+    public String[] getTypes() {
+	return types;
+    }
+
+    public void setTypes(String[] types) {
+	this.types = types;
+    }
 
     public ArrayList<File> getMaterials() {
 	return materials;
@@ -55,12 +69,11 @@ public class MaterialsSearchAction<T> implements Serializable {
     private DownloadFileService service;
 
     public void Search() {
-	if (materialsType == "Материали") {
+	if (materialsType.equals("Материали")) {
 	    materials = service.Search(serachWord);
 	} else {
-	    // TO DO
+	    // TO DO for Natalia!!!!!!
 	}
-
     }
 
     public int getSize() {
