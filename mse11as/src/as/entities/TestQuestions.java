@@ -5,11 +5,16 @@ package as.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 
 /**
  * @author Stefan Stefanov
@@ -18,21 +23,21 @@ import javax.persistence.ManyToOne;
 @Entity
 public class TestQuestions extends as.entities.Entity implements Serializable {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TestID", referencedColumnName = "testID")
     private Tests testID;
 
     @Id
-    @Column(columnDefinition = "Integer", unique = true)
-    @GeneratedValue
-    private Integer questionID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long questionID;
 
     @Column(columnDefinition = "Varchar(250)")
     private String question;
 
-    @Column(columnDefinition = "Integer")
-    private Integer correctAnswer;
+    @Column(columnDefinition = "Varchar(1)")
+    private Character correctAnswer;
 
-    public Tests getTestID() {
+	public Tests getTestID() {
 	return testID;
     }
 
@@ -40,11 +45,11 @@ public class TestQuestions extends as.entities.Entity implements Serializable {
 	this.testID = testID;
     }
 
-    public Integer getQuestionID() {
+    public Long getQuestionID() {
 	return questionID;
     }
 
-    public void setQuestionID(Integer questionID) {
+    public void setQuestionID(Long questionID) {
 	this.questionID = questionID;
     }
 
@@ -56,11 +61,11 @@ public class TestQuestions extends as.entities.Entity implements Serializable {
 	this.question = question;
     }
 
-    public Integer getCorrectAnswer() {
+    public Character getCorrectAnswer() {
 	return correctAnswer;
     }
 
-    public void setCorrectAnswer(Integer correctAnswer) {
+    public void setCorrectAnswer(Character correctAnswer) {
 	this.correctAnswer = correctAnswer;
     }
 
