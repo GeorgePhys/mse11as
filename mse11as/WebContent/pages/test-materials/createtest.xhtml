@@ -10,100 +10,64 @@
 <ui:define name="body">
 <div id="test">
 <h1>Създаване на тест</h1>
-
+<h:form id="dgp" >
 	<rich:panel style="height: 550px; width:100%;">
     	<div id="formTest">
-    	<h:form>
     	<h1>Настройки</h1>
+    	
     	<table>
-    		<tr><td class="t">Заглавие на теста</td><td><input type="text" /></td></tr>
-    		<tr><td class="t">Описание на теста</td><td><textarea rows="5" cols="40"></textarea></td></tr>
-    		<tr><td class="t">Брой въпроси</td><td><input style="width:25px;" type="text" /></td></tr>
-    		<tr><td class="t">Брой отговори<br /> за въпрос</td><td><input style="width:25px;" type="text" /></td></tr>
-    		<tr><td class="t">Брой опити</td><td><input style="width:25px;" type="text" /></td></tr>
-    		<tr><td class="t">Точкова система</td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">Показване на резултат</td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">Нива на трудност</td><td> <h:selectOneListbox value=""><f:selectItem itemLabel="Ниво 3"/> </h:selectOneListbox></td></tr>
+    		<tr><td class="t">Заглавие на теста</td><td><h:inputText value="#{t.test.testName}" /> </td></tr>
+    		
+    		<tr><td class="t">Описание на теста</td><td><h:inputTextarea value="#{t.test.description}" rows="5" cols="40" /></td></tr>
+    		
+    		<tr><td class="t">Брой въпроси</td><td><h:inputText style="width:25px;" value="#{t.test.numQuestions}" /></td></tr>
+    		
+    		<tr><td class="t">Брой отговори за въпрос</td><td><h:inputText style="width:25px;" value="#{t.test.numAnswPerQuestion}" /></td></tr>
+    		
+			<tr><td class="t">Точкова система</td><td>
+			<h:selectOneMenu value="#{t.test.pointSystem}" >
+				<f:selectItem itemLabel="ДА" itemValue="0" />
+				<f:selectItem itemLabel="НЕ" itemValue="1" />
+			</h:selectOneMenu>
+			</td></tr>
+    		
+    		<tr><td class="t">Показване на резултат</td><td>
+    		
+    		<h:selectOneMenu value="#{t.test.showResult}" >
+				<f:selectItem itemLabel="ДА" itemValue="0" />
+				<f:selectItem itemLabel="НЕ" itemValue="1" />
+			</h:selectOneMenu>
+    		
+    		</td></tr>
+    		
+    		<tr><td class="t">Нива на трудност</td><td>
+    		
+    		<h:selectOneMenu value="#{t.test.level}" >
+				<f:selectItem itemLabel="Ниво 1" itemValue="1" />
+				<f:selectItem itemLabel="Ниво 2" itemValue="2" />
+				<f:selectItem itemLabel="Ниво 3" itemValue="3" />
+				<f:selectItem itemLabel="Ниво 4" itemValue="4" />
+			</h:selectOneMenu>
+    		
+    		</td></tr>
+    		
     		<tr><td class="t"></td><td></td></tr>
-    		<tr><td class="t">Време за решаване на теста</td><td>Часове <h:selectOneListbox value=""><f:selectItem itemLabel="2 часа"/> </h:selectOneListbox> Минути <h:selectOneListbox value=""><f:selectItem itemLabel="45 минути"/> </h:selectOneListbox></td></tr>
-    		<tr><td class="t">Съобщение след решен тест</td><td><input type="text" /></td></tr>
+    		
+    		<tr><td class="t">Съобщение след решен тест</td><td><h:inputText value="#{t.test.msg}" /></td></tr>
+    		
     		<tr><td class="t"></td><td></td></tr>
-    		<tr><td class="t"><a4j:commandButton styleClass="btnGenerate" value="Генерирай тест" type="button"  /></td><td></td></tr>
+    		<tr><td class="t">
+    			<h:commandButton action="#{t.save(t.test)}" value="Генерирай тест">
+    			</h:commandButton>
+    		</td><td></td></tr>
     	
     	</table> 
-    	</h:form> 
+    	
     	</div>
     </rich:panel>
+    </h:form>
     <br />
-    <rich:panel style="height: 300px; width:100%;">
-    	<div id="formTest2">
-    	<h:form>
-    	<rich:tabPanel switchType="client">
-        <rich:tab header="Въпрост 1">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-        <rich:tab header="Въпрос 2">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-        <rich:tab header="Въпрос 3">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-        <rich:tab header="Въпрос 4">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-        <rich:tab header="Въпрос 5">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-        <rich:tab header="Въпрос 6">
-           <table>
-    		<tr><td class="t" id="mt">Въпрос</td><td><textarea  rows="5" cols="80"></textarea></td></tr>
-    		<tr><td class="t">Верен отговор/и</td><td></td></tr>
-    		<tr><td class="t">A - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">B - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">C - </td><td><input type="checkbox" /></td></tr>
-    		<tr><td class="t">D - </td><td><input type="checkbox" /></td></tr>
-    	</table> 
-        </rich:tab>
-    </rich:tabPanel>
-     <a4j:commandButton styleClass="btnSbm" value="Запазване на въпросите" type="button"  />
-     </h:form>
-    	</div>
-    </rich:panel>
+   <h:outputLabel value="#{t.test.testName}" />
  </div>
  
 </ui:define>

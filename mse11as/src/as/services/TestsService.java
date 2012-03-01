@@ -21,8 +21,8 @@ public class TestsService {
 		return em.merge(entity);
 	}
 
-	public void remove(File file) {
-		em.remove(file);
+	public <E> void remove(E e) {
+		em.remove(e);
 	}
 
 	public void update(Tests todo) {
