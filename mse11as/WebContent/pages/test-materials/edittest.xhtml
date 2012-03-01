@@ -13,19 +13,19 @@
 
 <div id="editTest">
 			<h:form>
-				<rich:dataTable id="auction" style="width:100%;" value="" var=""
-					rows="10">
+				<rich:dataTable id="auction" style="width:100%;" 
+				value="#{selectAllTestsAction.tests}" var="test" rows="10">
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
 							<h:outputText value="Номер" />
 						</f:facet>
-						<h:outputText id="fullName" value="025654" />
+						<h:outputText id="fullName" value="#{test.testID}" />
 					</rich:column>
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
 							<h:outputText value="Заглавие" />
 						</f:facet>
-						<h:outputText id="username" value="CSS Ninjas">
+						<h:outputText id="username" value="#{test.testName}">
 						</h:outputText>
 					</rich:column>
 					<rich:column style="text-align:center;">
@@ -33,15 +33,15 @@
 							<h:outputText value="Ниво на трудност" />
 						</f:facet>
 
-						<h:outputText value="Ниво 3" />
+						<h:outputText value="#{test.level}" />
 
 					</rich:column>
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
-							<h:outputText value="Борй въпроси" />
+							<h:outputText value="Брой въпроси" />
 						</f:facet>
 
-						<h:outputText value="4" />
+						<h:outputText value="#{test.numQuestions}" />
 
 					</rich:column>
 
@@ -51,10 +51,12 @@
 						</f:facet>
 
 						<a4j:commandLink value="">
+							<a xmlns="http://www.w3.org/1999/xhtml" href="/mse11as/pages/test-materials/editselectedtest.jsf">
 							<h:graphicImage style="width:40%; margin-right:10px;;"
 								value="/images/edit.PNG" />
+							</a>
 						</a4j:commandLink>
-						<a4j:commandLink value="">
+						<a4j:commandLink value="" action="#{selectAllTestsAction.Delete(test)}">
 							<h:graphicImage style="width:40%; " value="/images/delete.PNG" />
 						</a4j:commandLink>
 						<a4j:commandLink value="">
