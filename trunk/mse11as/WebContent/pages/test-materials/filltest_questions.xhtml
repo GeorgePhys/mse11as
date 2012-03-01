@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | Fill Test</ui:define>
+<ui:define name="body">
+<div id="">
+	<h1>Попълнете въпросите и отговорите</h1>
+		 
+    <rich:panel style="height: 100%; width:100%;">
+    <h:form id="sdsdsdsd" name="sdasad">
+    	<div id="formTest2">
+    	 <table>
+    	 <ui:repeat var="q" value="#{tq.questions}">
+    		<tr ><td >Въпрос </td><td></td></tr>
+    		<tr><td><h:inputTextarea  value="#{q.question}" cols="80" rows="2" /></td></tr>
+    		<tr><td >Верен отговор/и</td></tr>
+    		<tr><td><h:inputText value="#{q.correctAnswer}" /> </td></tr>
+    		</ui:repeat>
+		</table>         
+     		<h:commandButton action="#{tq.save(tq.questions)}" value="SAVE" />
+    	</div>
+    	 </h:form>
+    </rich:panel>
+   
+	</div>
+</ui:define>
+</ui:composition>

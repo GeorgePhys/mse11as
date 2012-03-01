@@ -33,7 +33,6 @@ public class TestsActions implements Serializable {
 	}
 
 	public String save(Tests test){
-		this.ts.save(test);
 		return "do";
 	}
 
