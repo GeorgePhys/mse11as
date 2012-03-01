@@ -6,9 +6,11 @@ package as.entities;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -20,9 +22,8 @@ import javax.persistence.OneToMany;
 public class Tests extends as.entities.Entity implements Serializable {
 
     @Id
-    @Column(columnDefinition = "Integer", unique = true)
-    @GeneratedValue
-    private Integer testID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long testID;
 
     @Column(columnDefinition = "Varchar(150)")
     private String testName;
@@ -30,12 +31,9 @@ public class Tests extends as.entities.Entity implements Serializable {
     @Column(columnDefinition = "Varchar(150)")
     private String description;
     
-    @OneToMany(mappedBy = "testID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "testID")
     private Set<TestQuestions> testQuestions;
 
-    @OneToMany(mappedBy = "testID")
-    private Set<UserAssignedTests> userAssignedTests;
-    
     @Column(columnDefinition = "Integer")
     private int numQuestions;
     
@@ -69,14 +67,6 @@ public class Tests extends as.entities.Entity implements Serializable {
 
     public void setTestQuestions(Set<TestQuestions> testQuestions) {
 	this.testQuestions = testQuestions;
-    }
-
-    public Set<TestAnswers> getTestAnswers() {
-	return testAnswers;
-    }
-
-    public void setTestAnswers(Set<TestAnswers> testAnswers) {
-	this.testAnswers = testAnswers;
     }
 
     public int getNumQuestions() {
@@ -119,14 +109,11 @@ public class Tests extends as.entities.Entity implements Serializable {
 		this.msg = msg;
 	}
 
-	@OneToMany(mappedBy = "testID")
-    private Set<TestAnswers> testAnswers;
-
-    public Integer getTestID() {
+    public Long getTestID() {
 	return testID;
     }
 
-    public void setTestID(Integer testID) {
+    public void setTestID2(Long testID) {
 	this.testID = testID;
     }
 
