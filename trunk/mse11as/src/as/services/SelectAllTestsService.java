@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import as.entities.File;
+import as.entities.TestQuestions;
 import as.entities.Tests;
 
 /**
@@ -38,8 +39,16 @@ public class SelectAllTestsService {
 			.getResultList();
 		return listTests;
     }
+    
+	public ArrayList<TestQuestions> getTestQuestions(Tests t) {
+		String g = String.valueOf(t.getTestID());
+		ArrayList<TestQuestions> listTestsQuestions = (ArrayList) em.createQuery(
+			"SELECT t FROM TestQuestions t WHERE t.testID='"+g+"'").getResultList();
+		return listTestsQuestions;
+	}
 
     public void Delete(Tests test) {
     	em.remove(em.merge(test));
     }
+    
 }

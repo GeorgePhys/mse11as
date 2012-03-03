@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
 import as.entities.File;
+import as.entities.TestQuestions;
 import as.entities.Tests;
 
 @Stateful
@@ -37,4 +38,6 @@ public class TestsService {
 	public Tests findTest(String id) {
 		return (Tests) em.find(Tests.class, Long.parseLong(id));
 	}
+	
+	
 }
