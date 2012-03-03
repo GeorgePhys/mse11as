@@ -18,24 +18,36 @@ import as.entities.TestQuestions;
 import as.entities.Tests;
 import as.services.TestsService;
 
-@ManagedBean(name="tq")
+@ManagedBean(name = "tq")
 @RequestScoped
 public class TestQuestionsActions implements Serializable {
-	
-	@ManagedProperty(value="#{t.test}")
-	public Tests t;
-	private ArrayList<TestQuestions> questions = new ArrayList<TestQuestions>();
-	private Set<TestQuestions> set = new HashSet<TestQuestions>();
-	@EJB
-	private  TestsService ts;
-	
 
-	    @PostConstruct
-	    public void init() {
-	    	for(int i=0;i<this.t.getNumQuestions();i++){
-	    		this.questions.add(new TestQuestions());
-	    	}
-	    }
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Mapping el elment from t session bean
+	 */
+	@ManagedProperty(value = "#{t.test}")
+	public Tests t;
+
+	// questions for the specific test
+	private ArrayList<TestQuestions> questions = new ArrayList<TestQuestions>();
+
+	// converted test questions for table inport
+	private Set<TestQuestions> set = new HashSet<TestQuestions>();
+
+	@EJB
+	private TestsService ts;
+
+	/**
+	 * Generate pool with test questions (objects)
+	 */
+	@PostConstruct
+	public void init() {
+		for (int i = 0; i < this.t.getNumQuestions(); i++) {
+			this.questions.add(new TestQuestions());
+		}
+	}
 
 	public ArrayList<TestQuestions> getQuestions() {
 		return questions;
@@ -53,15 +65,22 @@ public class TestQuestionsActions implements Serializable {
 		this.t = t;
 	}
 
-	public String save(ArrayList<TestQuestions> d){
-		for(int i=0;i<d.size();i++){
+	/**
+	 * Save import test questions in active test then save the data to database
+	 * 
+	 * @param d
+	 *            list with test questions
+	 * @return string - transfer to main administration page
+	 */
+	public String save(ArrayList<TestQuestions> d) {
+		for (int i = 0; i < d.size(); i++) {
 			TestQuestions tq = d.get(i);
 			tq.setTestID(this.t);
 			this.set.add(tq);
 		}
 		this.t.setTestQuestions(this.set);
 		this.ts.save(t);
-		
+
 		return "ok";
 	}
 }

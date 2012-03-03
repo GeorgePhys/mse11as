@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | Edit Test</ui:define>
+<ui:define name="body">
+<div id="selectTest">
+<h1>Избери тест</h1>
+
+	<h:form>
+				<rich:dataTable id="auction" style="width:100%;" 
+				value="#{selectAllTestsAction.tests}" var="test" rows="10">
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Номер" />
+						</f:facet>
+						<h:outputText id="fullName" value="#{test.testID}" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Заглавие" />
+						</f:facet>
+						<h:outputText id="username" value="#{test.testName}">
+						</h:outputText>
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Ниво на трудност" />
+						</f:facet>
+
+						<h:outputText value="#{test.level}" />
+
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Брой въпроси" />
+						</f:facet>
+
+						<h:outputText value="#{test.numQuestions}" />
+
+					</rich:column>
+
+					<rich:column style="text-align:center; width:50px; ">
+						<f:facet name="header">
+							<h:outputText value="Действие" />
+						</f:facet>
+
+							<a4j:commandLink value="" action="#{selectAllTestsAction.generateTest(test)}">
+							<h:graphicImage style="width:40%; margin-right:10px;" value="/images/selectTest.PNG" />
+						</a4j:commandLink>
+					</rich:column>
+
+					<f:facet name="footer">
+						<!--  <rich:datascroller for="auction" maxPages="5" /> -->
+					</f:facet>
+				</rich:dataTable>
+			</h:form>
+
+</div>
+</ui:define>
+</ui:composition>

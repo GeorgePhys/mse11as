@@ -20,18 +20,22 @@
 			<to-view-id>/pages/test-materials/index.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
+	
+	
+		<navigation-rule>
 	<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>ok</from-outcome>
-			<to-view-id>/pages/test-materials/index.xhtml</to-view-id>
+			<from-outcome>GenerateMyTest</from-outcome>
+			<to-view-id>/pages/test-materials/fillquestions.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 <navigation-rule>
+
  <from-view-id>*</from-view-id>
   <navigation-case>
    <from-outcome>del</from-outcome>
-   <to-view-id>/pages/test-materials/edittest.jsf</to-view-id>
+   <to-view-id>/pages/test-materials/edittest.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
 </faces-config>
