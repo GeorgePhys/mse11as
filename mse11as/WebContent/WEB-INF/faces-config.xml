@@ -26,7 +26,7 @@
 	<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-outcome>GenerateMyTest</from-outcome>
-			<to-view-id>/pages/test-materials/fillquestions.xhtml</to-view-id>
+			<to-view-id>/pages/test-materials/public/fillquestions.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
