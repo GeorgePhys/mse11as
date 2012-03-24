@@ -28,7 +28,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class TestQuestions extends as.entities.Entity implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "TestID", referencedColumnName = "testID")
     private Tests testID;
 

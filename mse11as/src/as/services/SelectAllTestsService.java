@@ -5,14 +5,19 @@ package as.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import as.entities.File;
+import as.entities.TestAnswers;
 import as.entities.TestQuestions;
 import as.entities.Tests;
 
@@ -44,6 +49,15 @@ public class SelectAllTestsService {
 		String g = String.valueOf(t.getTestID());
 		ArrayList<TestQuestions> listTestsQuestions = (ArrayList) em.createQuery(
 			"SELECT t FROM TestQuestions t WHERE t.testID='"+g+"'").getResultList();
+		List<TestAnswers> temp;
+		for(int i=0;i<listTestsQuestions.size();i++){
+			String g2 = String.valueOf(listTestsQuestions.get(i).getQuestionID());
+			 temp = new ArrayList<TestAnswers>();
+			temp = (ArrayList) em.createQuery(
+					"SELECT a FROM TestAnswers a WHERE a.testQuestions='"+g2+"'").getResultList();
+			listTestsQuestions.get(i).setTestAnswers(temp);
+		}
+		
 		return listTestsQuestions;
 	}
 

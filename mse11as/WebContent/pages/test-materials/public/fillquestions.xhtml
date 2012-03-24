@@ -10,11 +10,15 @@
 <ui:define name="body">
 <div id="selectTest">
 <h1>Реши тест тест</h1>
+	<h:form>
 	<ui:repeat var="question" value="#{testSelect.selectedTestQuestions}">
 			<p><h:outputText value="#{question.question}" /> </p>
-			<p><h:inputText value="#{question.correctAnswer}" /> </p>
+			<ui:repeat var="ans" value="#{question.testAnswers}">
+			<p><h:selectBooleanCheckbox value="#{ans.answerVal}"  /><h:outputText value="#{ans.answer}" /> </p>
+			</ui:repeat>
 	</ui:repeat>
-	<h:commandButton  value="Готов съм" />
+	<h:commandButton  value="Готов съм" action="#{testSelect.doneTest(testSelect.selectedTestQuestions)}" />
+	</h:form>
 </div>
 </ui:define>
 </ui:composition>
