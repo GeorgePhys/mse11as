@@ -4,6 +4,7 @@
 package as.entities;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Tests extends as.entities.Entity implements Serializable {
     private String description;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "testID")
-    private Set<TestQuestions> testQuestions;
+    private Set<TestQuestions> testQuestions = new LinkedHashSet<TestQuestions>();
 
     @Column(columnDefinition = "Integer")
     private int numQuestions;

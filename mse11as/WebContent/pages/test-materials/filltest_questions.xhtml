@@ -9,21 +9,26 @@
       
 <ui:define name="title">Administration | Fill Test</ui:define>
 <ui:define name="body">
-<div id="">
+<div id="fGenerateTest">
 	<h1>Попълнете въпросите и отговорите</h1>
-		 
-    <rich:panel style="height: 100%; width:100%;">
+	<div id="notes">
+		<p>Моля въведете въпрос и конкретни отговори !</p>
+		<p>В полето 'отговор', въведете правилният. </p>
+	</div>
+    <rich:panel style="height: auto; width:83%;">
     <h:form id="sdsdsdsd" name="sdasad">
     	<div id="formTest2">
     	 <table>
     	 <ui:repeat var="q" value="#{tq.questions}">
-    		<tr ><td >Въпрос </td><td></td></tr>
+    		<tr ><td>Въведете въпрос и брой конкретни отговори: </td><td></td></tr>
     		<tr><td><h:inputTextarea  value="#{q.question}" cols="80" rows="2" /></td></tr>
-    		<tr><td >Верен отговор/и</td></tr>
-    		<tr><td><h:inputText value="#{q.correctAnswer}" /> </td></tr>
+    		<tr><td >Верен отговор: </td></tr>
+    			<ui:repeat var="s" value="#{q.testAnswers}">
+    				<tr><td><h:selectBooleanCheckbox value="#{s.answerVal}" /> <h:inputText value="#{s.answer}" /></td></tr>
+    			</ui:repeat>
     		</ui:repeat>
 		</table>         
-     		<h:commandButton action="#{tq.save(tq.questions)}" value="SAVE" />
+     		<h:commandButton styleClass="btn" action="#{tq.save(tq.questions)}" value="Запази" />
     	</div>
     	 </h:form>
     </rich:panel>

@@ -11,7 +11,7 @@
 <div id="test">
 <h1>Създаване на тест</h1>
 <h:form id="dgp" >
-	<rich:panel style="height: 550px; width:100%;">
+	<rich:panel style="height: 500px; width:100%;">
     	<div id="formTest">
     	<h1>Настройки</h1>
     	
@@ -57,7 +57,7 @@
     		
     		<tr><td class="t"></td><td></td></tr>
     		<tr><td class="t">
-    			<h:commandButton action="#{t.save(t.test)}" value="Генерирай тест">
+    			<h:commandButton styleClass="btnGenerateTest" action="#{t.save(t.test)}" value="Генерирай тест">
     			</h:commandButton>
     		</td><td></td></tr>
     	
@@ -67,7 +67,6 @@
     </rich:panel>
     </h:form>
     <br />
-   <h:outputLabel value="#{t.test.testName}" />
  </div>
  
 </ui:define>
