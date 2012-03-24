@@ -61,7 +61,7 @@ textarea, input[type="text"], input[type="password"], select {
 	font-style: normal;
 	color: #999999 !important;
 }
-#formTest .btnGenerate #viewTest .btnSearchTest{
+#formTest .btnGenerate #viewTest .btnSearchTest, #test .btnGenerateTest, .btn{
 	margin-top: 5px;
 	width:120px;
 	height: 28px;
@@ -72,6 +72,9 @@ textarea, input[type="text"], input[type="password"], select {
 	width:160px;
 	height: 28px;
 	color:#ffffff;
+}
+#test .btnGenerateTest, .btn {
+	
 }
 #searchTest .searchTest2{
 	margin-top: 0px;

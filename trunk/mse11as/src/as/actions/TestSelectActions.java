@@ -38,7 +38,7 @@ public class TestSelectActions implements Serializable {
 		this.selectedTestQuestions = d.getTestQuestions();
 		this.hiddenArchiveTestQuestions = this.selectedTestQuestions;
 		for(int i=0;i<this.selectedTestQuestions.size();i++){
-			this.selectedTestQuestions.get(i).setCorrectAnswer(' ');
+			
 		}
 	}
 

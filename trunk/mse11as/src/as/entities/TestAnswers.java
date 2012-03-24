@@ -4,12 +4,18 @@
 package as.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * @author Stefan Stefanov
@@ -17,38 +23,43 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class TestAnswers extends as.entities.Entity implements Serializable {
-
-    @ManyToOne
-    private Tests testID;
-
-    @ManyToOne
-    private TestQuestions questionID;
+	
+	
 
     @Id
     @Column(columnDefinition = "Integer", unique = true)
     @GeneratedValue
     private Integer answerID;
 
-    public Tests getTestID() {
-	return testID;
-    }
+    
+    @Column(columnDefinition = "tinyint(0)")
+    private Boolean answerVal;
+    
+    
+    public Boolean getAnswerVal() {
+		return answerVal;
+	}
 
-    public void setTestID(Tests testID) {
-	this.testID = testID;
-    }
+	public void setAnswerVal(Boolean answerVal) {
+		this.answerVal = answerVal;
+	}
+	
 
-    public TestQuestions getQuestionID() {
-	return questionID;
-    }
+	@ManyToOne
+	private TestQuestions testQuestions;
+	
+	public TestQuestions getTestQuestions() {
+		return testQuestions;
+	}
 
-    public void setQuestionID(TestQuestions questionID) {
-	this.questionID = questionID;
-    }
+	public void setTestQuestions(TestQuestions testQuestions) {
+		this.testQuestions = testQuestions;
+	}
 
-    public Integer getAnswerID() {
+	public Integer getAnswerID() {
 	return answerID;
     }
-
+    
     public void setAnswerID(Integer answerID) {
 	this.answerID = answerID;
     }

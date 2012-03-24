@@ -2,7 +2,13 @@ package as.actions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
@@ -14,16 +20,17 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 
 import as.entities.File;
+import as.entities.TestAnswers;
 import as.entities.TestQuestions;
 import as.entities.Tests;
 import as.services.TestsService;
 
 @ManagedBean(name = "tq")
-@RequestScoped
+@SessionScoped
 public class TestQuestionsActions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	private List<TestAnswers> mp = new ArrayList<TestAnswers>();
 	/**
 	 * Mapping el elment from t session bean
 	 */
@@ -32,12 +39,24 @@ public class TestQuestionsActions implements Serializable {
 
 	// questions for the specific test
 	private ArrayList<TestQuestions> questions = new ArrayList<TestQuestions>();
-
 	// converted test questions for table inport
-	private Set<TestQuestions> set = new HashSet<TestQuestions>();
-
+	
+	private ArrayList<TestAnswers> tAnswerArr = new ArrayList<TestAnswers>();
+	
+	private List<TestAnswers> tAnswers;
+	private List<TestAnswers> list = new LinkedList<TestAnswers>();
+	
 	@EJB
 	private TestsService ts;
+	private Set<TestQuestions> set = new HashSet<TestQuestions>();
+
+	public Set<TestQuestions> getSet() {
+		return set;
+	}
+
+	public void setSet(Set<TestQuestions> set) {
+		this.set = set;
+	}
 
 	/**
 	 * Generate pool with test questions (objects)
@@ -45,8 +64,34 @@ public class TestQuestionsActions implements Serializable {
 	@PostConstruct
 	public void init() {
 		for (int i = 0; i < this.t.getNumQuestions(); i++) {
-			this.questions.add(new TestQuestions());
+			TestQuestions testQuestionTemp = new TestQuestions();
+			tAnswers = new LinkedList<TestAnswers>();
+			for(int j=0;j<this.t.getNumAnswPerQuestion();j++){
+				TestAnswers dom = new TestAnswers();
+				dom.setTestQuestions(testQuestionTemp);
+				tAnswers.add(dom);
+			}
+			testQuestionTemp.setTestAnswers(tAnswers);
+			this.questions.add(testQuestionTemp);
+			
 		}
+		
+	}
+
+	public List<TestAnswers> getList() {
+		return list;
+	}
+
+	public void setList(List<TestAnswers> list) {
+		this.list = list;
+	}
+
+	public ArrayList<TestAnswers> gettAnswerArr() {
+		return tAnswerArr;
+	}
+
+	public void settAnswerArr(ArrayList<TestAnswers> tAnswerArr) {
+		this.tAnswerArr = tAnswerArr;
 	}
 
 	public ArrayList<TestQuestions> getQuestions() {
@@ -56,13 +101,35 @@ public class TestQuestionsActions implements Serializable {
 	public void setQuestions(ArrayList<TestQuestions> questions) {
 		this.questions = questions;
 	}
+	
+	public List<TestAnswers> getListFromSet(Set<TestAnswers> set){
+		list = new ArrayList<TestAnswers>(set);
+		return list;
+	}
+	
+	public List<TestAnswers> getMp() {
+		return mp;
+	}
+
+	public void setMp(List<TestAnswers> mp) {
+		this.mp = mp;
+	}
 
 	public Tests getT() {
 		return t;
 	}
-
 	public void setT(Tests t) {
 		this.t = t;
+	}
+
+	
+
+	public List<TestAnswers> gettAnswers() {
+		return tAnswers;
+	}
+
+	public void settAnswers(List<TestAnswers> tAnswers) {
+		this.tAnswers = tAnswers;
 	}
 
 	/**
@@ -77,10 +144,17 @@ public class TestQuestionsActions implements Serializable {
 			TestQuestions tq = d.get(i);
 			tq.setTestID(this.t);
 			this.set.add(tq);
+			
 		}
 		this.t.setTestQuestions(this.set);
 		this.ts.save(t);
-
+		
 		return "ok";
+	}
+	public String cancel(){
+		this.ts.remove(this.t);
+		this.questions = null;
+		this.t = null;
+		return "CancelCreateTest";
 	}
 }

@@ -4,6 +4,10 @@
 package as.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -30,17 +35,26 @@ public class TestQuestions extends as.entities.Entity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long questionID;
-
+    
     @Column(columnDefinition = "Varchar(250)")
     private String question;
 
-    @Column(columnDefinition = "Varchar(1)")
-    private Character correctAnswer;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="testQuestions")
+    private List<TestAnswers> testAnswers = new ArrayList<TestAnswers>();
+
+
+	public List<TestAnswers> getTestAnswers() {
+		return testAnswers;
+	}
+
+	public void setTestAnswers(List<TestAnswers> testAnswers) {
+		this.testAnswers = testAnswers;
+	}
 
 	public Tests getTestID() {
 	return testID;
     }
-
+	
     public void setTestID(Tests testID) {
 	this.testID = testID;
     }
@@ -61,12 +75,6 @@ public class TestQuestions extends as.entities.Entity implements Serializable {
 	this.question = question;
     }
 
-    public Character getCorrectAnswer() {
-	return correctAnswer;
-    }
 
-    public void setCorrectAnswer(Character correctAnswer) {
-	this.correctAnswer = correctAnswer;
-    }
 
 }
