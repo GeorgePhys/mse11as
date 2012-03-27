@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="template/test-materials.xhtml"> 
+      
+<ui:define name="title">Administration | View All Users</ui:define>
+<ui:define name="body">
+<div id="viewAllTest">
+<h1>Резултати от тестове</h1>
+
+<div id="viewAllTest">
+			<h:form>
+				<rich:dataTable id="auction" style="width:100%;" 
+				value="#{viewAllUsersTAction.users}" var="user" rows="5">
+					<rich:column style="text-align:center; width:100px;">
+						<f:facet name="header">
+							<h:outputText value="Номер на служител" />
+						</f:facet>
+						<h:outputText id="userID" value="#{user.userID}" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Име" />
+						</f:facet>
+						<h:outputText id="firstName" value="#{user.firstName}" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Фамилия" />
+						</f:facet>
+						<h:outputText id="lastName" value="#{user.lastName}" />
+					</rich:column>
+					<rich:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="Имейл" />
+						</f:facet>
+						<h:outputText id="email" value="#{user.email}" />
+					</rich:column>
+					<rich:column style="text-align:center; width:50px; ">
+						<f:facet name="header">
+							<h:outputText value="Действие" />
+						</f:facet>
+						<a4j:commandLink value="">
+							<h:graphicImage style="width:40%; " value="/images/viewtest.PNG" />
+						</a4j:commandLink>
+					</rich:column>
+
+					<f:facet name="footer">
+						<!--  <rich:datascroller for="auction" maxPages="5" /> -->
+					</f:facet>
+				</rich:dataTable>
+			</h:form>
+		</div>
+ </div>
+</ui:define>
+</ui:composition>
