@@ -10,59 +10,35 @@
 <ui:define name="body">
 <h1>Администрация <span>: Добави Група</span></h1>
 <div id="addGroup">
+<h:form id="groupform">
  		<rich:panel header="Данни за групата" style="position: relative;">
  			
  				<table>
             	<tr>
             		<td class="txtRight"><span>*</span>Име на група</td>
-            		<td><h:inputText value="" /> </td>
+            		<td><h:inputText value="#{groupActions.currentGroup.groupName}" /> </td>
             	</tr>
             	<tr>
             		<td class="txtRight" style="position:relative"><span class="specificLabel">* Описание</span></td>
-            		<td><h:inputTextarea  value="" cols="60" rows="10" /> </td>
+            		<td><h:inputTextarea  value="#{groupActions.currentGroup.description}" cols="60" rows="10"  /> </td>
             	</tr>
             	</table>
             	</rich:panel>
             	<rich:panel header="Привилегии">
             	
-            	<h2>Административни </h2>
                 	<table class="groupPrivil">
                 	
-                		<tr>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                		</tr>
-                		<tr>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                			<td><h:selectBooleanCheckbox value="" />Административна привилегия </td>
-                		</tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.administration}" /> Административен модул </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.plan}" /> Модул план за обучение </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.charts}" /> Модул справки</td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.testsmaterials}" /> Модул тестове и материали </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.atestation}" /> Модул атестиране </td></tr>
                 		</table>
-                	<h2>Справки и статистики </h2>
-                	<table class="groupPrivil">
-                		<tr>
-                			<td><h:selectBooleanCheckbox value="" /> Генериране на справка </td>
-                			<td><h:selectBooleanCheckbox value="" /> Назначаване на справка </td>
-                			<td></td>
-                		</tr>
-                		</table>
-                		<h2>План и график </h2>
-                		<table class="groupPrivil">
-                		<tr>
-                			<td><h:selectBooleanCheckbox value="" /> Създаване на план </td>
-                			<td><h:selectBooleanCheckbox value="" /> Редактиране на план </td>
-                			<td><h:selectBooleanCheckbox value="" /> Изтриване на план </td>
-                		</tr>
-                		<tr>
-                			<td><h:selectBooleanCheckbox value="" /> Създаване на график </td>
-                			<td><h:selectBooleanCheckbox value="" /> Редактиране на график </td>
-                			<td><h:selectBooleanCheckbox value="" /> Изтриване на график </td>
-                		</tr>
-            	</table>
+                	
          
 			</rich:panel>
-			<a4j:commandButton styleClass="btnSubmitUserAdd" value="Създай група" type="button"  />
+			<h:commandButton styleClass="btnSubmitUserAdd" action="#{groupActions.save(groupActions.currentGroup)}" value="Създай група" />
+			</h:form>
    </div>
 </ui:define>
 </ui:composition>
