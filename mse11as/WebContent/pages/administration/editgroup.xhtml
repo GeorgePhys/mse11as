@@ -28,19 +28,19 @@
 				Администрация <span>: Редактирай Група</span>
 			</h1>
 			<h:form>
-				<rich:dataTable id="auction" style="width:100%;" value="" var=""
+				<rich:dataTable id="auction" style="width:100%;" value="#{groupActions.availableGroups}" var="groupCurrent"
 					rows="10">
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
 							<h:outputText value="Номер" />
 						</f:facet>
-						<h:outputText  value="000001" />
+						<h:outputText  value="#{groupCurrent.groupID}" />
 					</rich:column>
 					<rich:column style="text-align:center;">
 						<f:facet name="header">
 							<h:outputText value="Име на група" />
 						</f:facet>
-						<h:outputText id="username" value="CSS Ninjas">
+						<h:outputText id="username" value="#{groupCurrent.groupName}">
 						</h:outputText>
 					</rich:column>
 					<rich:column style="text-align:center;">
@@ -48,7 +48,7 @@
 							<h:outputText value="Дата на създаване" />
 						</f:facet>
 
-						<h:outputText value="12/01/2011" />
+						<h:outputText value="#{groupCurrent.currentDate}" />
 
 					</rich:column>
 
@@ -58,13 +58,13 @@
 							<h:outputText value="Действие" />
 						</f:facet>
 
-						<a4j:commandLink value="">
+						<h:commandLink value="" action="#{groupActions.editGroup(groupCurrent)}">
 							<h:graphicImage style="width:40%; margin-right:10px;;"
 								value="/images/edit.PNG" />
-						</a4j:commandLink>
-						<a4j:commandLink value="">
+						</h:commandLink>
+						<h:commandLink value="" action="#{groupActions.deleteGroup(groupCurrent)}">
 							<h:graphicImage style="width:40%; " value="/images/delete.PNG" />
-						</a4j:commandLink>
+						</h:commandLink>
 					</rich:column>
 
 					<f:facet name="footer">

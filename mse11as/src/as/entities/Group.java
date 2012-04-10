@@ -4,6 +4,7 @@
 package as.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author Stefan Stefanov
@@ -38,7 +41,9 @@ public class Group extends as.entities.Entity implements Serializable {
     
     @OneToOne(cascade = { CascadeType.ALL })
     private GroupPrivileges groupPrivileges = new GroupPrivileges();
-
+    
+    Date currentDate = new Date();
+    
 	public Integer getGroupID() {
 		return groupID;
 	}
@@ -69,6 +74,15 @@ public class Group extends as.entities.Entity implements Serializable {
 
 	public void setGroupPrivileges(GroupPrivileges groupPrivileges) {
 		this.groupPrivileges = groupPrivileges;
+	}
+	
+	@Temporal(TemporalType.TIME)
+	public Date getCurrentDate() {
+		return currentDate;
+	}
+
+	public void setCurrentDate(Date currentDate) {
+		this.currentDate = currentDate;
 	}
     
 
