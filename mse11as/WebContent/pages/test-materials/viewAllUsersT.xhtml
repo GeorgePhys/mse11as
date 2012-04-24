@@ -12,9 +12,32 @@
 <h1>Резултати от тестове</h1>
 
 <div id="viewAllTest">
-			<h:form>
+	<h:form>
+		<div id="searchUserSolvedTests">
+			<rich:panel>
+					<table>
+						<tr>
+							<td>
+							<h:selectOneMenu id="sdasda" style="width:100px;" value="#{searchUsersSolvedTestsAction.usersType}">
+									<f:selectItem itemLabel="Номер"  itemValue="Номер" />
+									<f:selectItem itemLabel="Име" itemValue="Име" />
+									<f:selectItem itemLabel="Фамилия" itemValue="Фамилия" />
+									<f:selectItem itemLabel="Имейл" itemValue="Имейл" />
+								</h:selectOneMenu></td>
+						</tr>
+						<tr>
+							<td>Въведи ключова дума:</td>
+							<td><h:inputText style="width:300px;"
+									value="#{searchUsersSolvedTestsAction.searchWord}" /></td>
+							<td><h:commandButton id="sda"
+									value="Търсене" action="#{searchUsersSolvedTestsAction.Search(searchUsersSolvedTestsAction.searchWord)}"
+									 ></h:commandButton></td>
+						</tr>
+					</table>
+			</rich:panel>
+		</div>
 				<rich:dataTable id="auction" style="width:100%;" 
-				value="#{viewAllUsersTAction.users}" var="user" rows="5">
+				value="#{searchUsersSolvedTestsAction.users}" var="user" rows="5">
 					<rich:column style="text-align:center; width:100px;">
 						<f:facet name="header">
 							<h:outputText value="Номер на служител" />
@@ -43,7 +66,7 @@
 						<f:facet name="header">
 							<h:outputText value="Действие" />
 						</f:facet>
-						<a4j:commandLink value="">
+						<a4j:commandLink id="aa" value="">
 							<h:graphicImage style="width:40%; " value="/images/viewtest.PNG" />
 						</a4j:commandLink>
 					</rich:column>
