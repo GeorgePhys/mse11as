@@ -78,12 +78,12 @@ public class SearchUsersSolvedTestsAction implements Serializable {
 		this.usersType = usersType;
 	}
 
-	public void Search(String word) {
+	public void search(String word) {
     	this.searchWord = word;
     	if (searchWord == null) {
 			users = service.GetAllUsers();
 		}else{
-			users = service.Search(searchWord, this.usersType);
+			users = service.search(searchWord, this.usersType);
 		}
     	System.out.println("1 "+usersType);
 		
