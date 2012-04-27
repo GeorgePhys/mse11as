@@ -32,7 +32,7 @@ public class SearchUsersSolvedTestsService {
     	return listUsers;
     }
 
-    public ArrayList<User> Search(String str, String usersType) {
+    public ArrayList<User> search(String str, String usersType) {
     	ArrayList<User> listUsers = null;
     	
 		if (usersType.equals("Номер")) {
