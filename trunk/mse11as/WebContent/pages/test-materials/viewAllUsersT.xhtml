@@ -30,7 +30,7 @@
 							<td><h:inputText style="width:300px;"
 									value="#{searchUsersSolvedTestsAction.searchWord}" /></td>
 							<td><h:commandButton id="sda"
-									value="Търсене" action="#{searchUsersSolvedTestsAction.Search(searchUsersSolvedTestsAction.searchWord)}"
+									value="Търсене" action="#{searchUsersSolvedTestsAction.search(searchUsersSolvedTestsAction.searchWord)}"
 									 ></h:commandButton></td>
 						</tr>
 					</table>
@@ -67,7 +67,9 @@
 							<h:outputText value="Действие" />
 						</f:facet>
 						<a4j:commandLink id="aa" value="">
+							<a xmlns="http://www.w3.org/1999/xhtml" href="/mse11as/pages/test-materials/viewtest.jsf">
 							<h:graphicImage style="width:40%; " value="/images/viewtest.PNG" />
+							</a>
 						</a4j:commandLink>
 					</rich:column>
 
