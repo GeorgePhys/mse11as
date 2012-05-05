@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="../admin/admin-template.xhtml"> 
+      
+<ui:define name="title">Administration | Add Group</ui:define>
+<ui:define name="body">
+<h1>Администрация <span>: Добави Група</span></h1>
+<div id="addGroup">
+<h:form id="groupform">
+ 		<rich:panel header="Данни за групата" style="position: relative;">
+ 			
+ 				<table>
+            	<tr>
+            		<td class="txtRight"><span>*</span>Име на група</td>
+            		<td><h:inputText value="#{groupActions.currentGroup.groupName}" /> </td>
+            	</tr>
+            	<tr>
+            		<td class="txtRight" style="position:relative"><span class="specificLabel">* Описание</span></td>
+            		<td><h:inputTextarea  value="#{groupActions.currentGroup.description}" cols="60" rows="10"  /> </td>
+            	</tr>
+            	</table>
+            	</rich:panel>
+            	<rich:panel header="Привилегии">
+            	
+                	<table class="groupPrivil">
+                	
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.administration}" /> Административен модул </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.plan}" /> Модул план за обучение </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.charts}" /> Модул справки</td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.testsmaterials}" /> Модул тестове и материали </td></tr>
+                		<tr><td><h:selectBooleanCheckbox value="#{groupActions.currentGroup.groupPrivileges.atestation}" /> Модул атестиране </td></tr>
+                		</table>
+                	
+         
+			</rich:panel>
+			<h:commandButton styleClass="btnSubmitUserAdd" action="#{groupActions.save(groupActions.currentGroup)}" value="Създай група" />
+			</h:form>
+   </div>
+</ui:define>
+</ui:composition>

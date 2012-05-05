@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jstl/core"
-    template="admin/admin-template.xhtml"> 
+    template="../admin/admin-template.xhtml"> 
    <h:outputStylesheet>
         .ecol1 {
         vertical-align: top;
@@ -24,24 +24,36 @@
     </h:outputStylesheet>
 	<ui:define name="title">Добави роля или ранг</ui:define>
 	<ui:define name="body">
-	<h1>Администрация <span>: Център за управление на хора</span></h1>
+	<h1>Администрация <span>: Въведете желан ранг</span></h1>
 	<div id="addRole">
 	
+	<h:form>
+		
 		<table>
 		<tr>
-			<td><h:graphicImage value="/images/zveno_ico.JPG" /></td>
-			<td><a href="teams/t_role.jsf"  >Въвеждане на роля </a></td>
+		<td>Изберете роля</td>
+		<td>
+		<h:selectOneMenu value="#{rangActions.status}"  >
+			<f:selectItem itemValue="" itemLabel="------"/>
+		  	<f:selectItems value="#{rangActions.mRole}" var="br" itemLabel="#{br.roleName}" itemValue="#{br.roleID}" />
+		</h:selectOneMenu>
+		</td>
 		</tr>
 		<tr>
-			<td><h:graphicImage value="/images/ran_ico.JPG" /></td>
-			<td><a href="teams/t_rank.jsf"  >Въвеждане на ранг </a></td>
+			<td>Име на роля</td>
+			<td><h:inputText value="#{rangActions.rank.rankName}" /> </td>
 		</tr>
-		<tr>
-			<td><h:graphicImage value="/images/group_ico.JPG" /></td>
-				<td><a href="teams/t_group.jsf"  >Въвеждане на група </a></td>
+			<tr>
+			<td>Описание на роля</td>
+			<td><h:inputText value="#{rangActions.rank.description}" /> </td>
 		</tr>
 		
+			<tr>
+			<td></td>
+			<td><a4j:commandButton styleClass="btnSubmit" action="#{rangActions.save(rangActions.rank,rangActions.status)}" value="Запамети" type="button"  /></td>
+		</tr>
 		</table>
+	</h:form>
            
 
  </div>
