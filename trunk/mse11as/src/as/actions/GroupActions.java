@@ -21,8 +21,6 @@ public class GroupActions {
 	@EJB
 	private GroupOperationService groupService;
 	
-	
-	
 	public Group getCurrentGroup() {
 		return currentGroup;
 	}
@@ -49,9 +47,6 @@ public class GroupActions {
 		this.currentGroup  = this.groupService.extract(selectedGroup.getGroupID());
 		return "GroupForEdit";
 	}
-	
-	 
-
 	
 	
 }
