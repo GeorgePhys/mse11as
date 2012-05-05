@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import sun.nio.cs.Surrogate.Generator;
+
 /**
  * 
  * @author Stefan Stefanov
@@ -44,6 +46,9 @@ public class User extends as.entities.Entity implements Serializable {
     @Column(columnDefinition = "Varchar(50)")
     private String phone;
 
+    @Column(columnDefinition = "Varchar(100)")
+    private String password;
+    
     public Integer getUserID() {
 	return userID;
     }
@@ -108,7 +113,15 @@ public class User extends as.entities.Entity implements Serializable {
 	this.profiles = profiles;
     }
 
-    @Column(columnDefinition = "Varchar(100)")
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Column(columnDefinition = "Varchar(100)")
     private String email;
 
     @OneToMany(mappedBy = "userID")

@@ -5,8 +5,11 @@ package as.actions;
 
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -28,7 +31,7 @@ import as.services.SearchUsersSolvedTestsService;
 @SessionScoped
 public class SearchUsersSolvedTestsAction implements Serializable {
 	private ArrayList<User> users = new ArrayList<User>();
-
+	private Map<String,String>status = new HashMap<String,String>();
 	@EJB
 	private SearchUsersSolvedTestsService service;
 
@@ -36,13 +39,17 @@ public class SearchUsersSolvedTestsAction implements Serializable {
 	public ArrayList<User> getUsers() {
 		return users;
 	}
-    
-	private String usersType = new String();
-    private String searchWord = new String();
+	
+	private String usersType;
+    private String searchWord;
     
 	@PostConstruct
 	public void init() {
 		users = service.GetAllUsers();
+		status.put("Номер", "n");
+		status.put("Име", "i");
+		status.put("Фамилия", "f");
+		status.put("Имейл", "e");
 	}
     
     public void setUsers(ArrayList<User> users) {
@@ -78,18 +85,26 @@ public class SearchUsersSolvedTestsAction implements Serializable {
 		this.usersType = usersType;
 	}
 
-	public void search(String word) {
+	public void search(String word) throws UnsupportedEncodingException {
     	this.searchWord = word;
     	if (searchWord == null) {
 			users = service.GetAllUsers();
 		}else{
 			users = service.search(searchWord, this.usersType);
+			searchWord = "";
 		}
-    	System.out.println("1 "+usersType);
-		
     }
 
     public int getSize() {
     	return users.size();
     }
+
+	public Map<String, String> getStatus() {
+		return status;
+	}
+
+	public void setStatus(Map<String, String> status) {
+		this.status = status;
+	}
+    
 }
