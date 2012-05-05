@@ -35,23 +35,23 @@ public class SearchUsersSolvedTestsService {
     public ArrayList<User> search(String str, String usersType) {
     	ArrayList<User> listUsers = null;
     	
-		if (usersType.equals("Номер")) {
+		if (usersType.equals("n")) {
 			listUsers = (ArrayList) em.createQuery(
 					"SELECT us FROM " + User.class.getName() + " us WHERE us.userID LIKE '%" + str
 						+ "%'", User.class)
 					.getResultList();
 		} else {
-			if (usersType.equals("Име")){
+			if (usersType.equals("i")){
 				listUsers = (ArrayList) em.createQuery(
 						"SELECT us FROM " + User.class.getName() + " us WHERE us.firstName LIKE '%" + str
 							+ "%'", User.class).getResultList();
 			} else {
-				if (usersType.equals("Фамилия")){
+				if (usersType.equals("f")){
 					listUsers = (ArrayList) em.createQuery(
 							"SELECT us FROM " + User.class.getName() + " us WHERE us.lastName LIKE '%" + str
 								+ "%'", User.class).getResultList();
 				} else {
-					if (usersType.equals("Имейл")){
+					if (usersType.equals("e")){
 						listUsers = (ArrayList) em.createQuery(
 								"SELECT us FROM " + User.class.getName() + " us WHERE us.email LIKE '%" + str
 									+ "%'", User.class).getResultList();

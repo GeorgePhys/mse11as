@@ -19,16 +19,12 @@
 						<tr>
 							<td>
 							<h:selectOneMenu id="sdasda" style="width:100px;" value="#{searchUsersSolvedTestsAction.usersType}">
-									<f:selectItem itemLabel="Номер"  itemValue="Номер" />
-									<f:selectItem itemLabel="Име" itemValue="Име" />
-									<f:selectItem itemLabel="Фамилия" itemValue="Фамилия" />
-									<f:selectItem itemLabel="Имейл" itemValue="Имейл" />
+									 <f:selectItems value="#{searchUsersSolvedTestsAction.status}"/>        
 								</h:selectOneMenu></td>
 						</tr>
 						<tr>
 							<td>Въведи ключова дума:</td>
-							<td><h:inputText style="width:300px;"
-									value="#{searchUsersSolvedTestsAction.searchWord}" /></td>
+							<td><h:inputText style="width:300px;" value="#{searchUsersSolvedTestsAction.searchWord}" /></td>
 							<td><h:commandButton id="sda"
 									value="Търсене" action="#{searchUsersSolvedTestsAction.search(searchUsersSolvedTestsAction.searchWord)}"
 									 ></h:commandButton></td>
