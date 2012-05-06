@@ -23,25 +23,143 @@
     </h:outputStylesheet>
 <ui:define name="title">Administration | Search</ui:define>
 <ui:define name="body">
-<div id="sr">
+<div id="sr" >
 	<h1>Администрация <span>: Търсене</span></h1>
 	<rich:panel>
         <f:facet name="header">
             <h:outputText value="Търсене"></h:outputText>
         </f:facet>
-        <h:panelGrid>
+        <h:panelGrid style="width:100%;">
+		<h:form>
         <div id="searchVariants">
-           <p> <input type="checkbox"  />Роля</p>
-           <p> <input type="checkbox"  />Ранг</p>
-           <p> <input type="checkbox" />Група</p>
-           <p> <input type="checkbox"  />Отдел</p>
-           <p> <input type="checkbox"  />Потребител</p>
+        		<p><h:selectBooleanCheckbox value="#{globalSearch.roleCritery}" /><h:outputLabel value="Роля" /></p>
+        		<p><h:selectBooleanCheckbox value="#{globalSearch.rankCritery}" /><h:outputLabel value="Ранг" /></p>
+        		<p><h:selectBooleanCheckbox value="#{globalSearch.groupCritery}" /><h:outputLabel value="Група" /></p>
+         		<p><h:selectBooleanCheckbox value="#{globalSearch.userCritery}" /><h:outputLabel value="Потребител" /></p>
         </div>
        
-        <rich:inplaceInput defaultLabel="Кликнете за да въведете търсената дума" />
+        <rich:inplaceInput defaultLabel="Кликнете за да въведете търсената дума" value="#{globalSearch.searchWord}" />
        	 <div id="searchThis">
-        <a4j:commandButton styleClass="btnSubmitSearch" value="Търси" type="button"  />
-        </div>   
+       <h:commandButton styleClass="btnSubmitSearch" action="#{globalSearch.searchGlobal(globalSearch.searchWord)}" value="Търси">
+        </h:commandButton>
+        </div> 
+        
+        <rich:dataTable style="width:100%;margin-left:auto; margin-right:auto;" var="role" value="#{globalSearch.r}" rendered="#{globalSearch.roleCritery}" >
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Номер"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{role.roleID}" />
+			</rich:column>
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Име"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{role.roleName}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Описание"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{role.description}" />
+			</rich:column>
+        </rich:dataTable>  
+        
+           <rich:dataTable style="width:100%;margin-left:auto; margin-right:auto;" var="group" value="#{globalSearch.g}" rendered="#{globalSearch.groupCritery}" >
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Номер"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{group.groupID}" />
+			</rich:column>
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Име"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{group.groupName}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Описание"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{group.description}" />
+			</rich:column>
+			<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Дата"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{group.currentDate}" />
+			</rich:column>
+        </rich:dataTable>
+        
+        <rich:dataTable style="width:100%;margin-left:auto; margin-right:auto;" var="rank" value="#{globalSearch.rk}" rendered="#{globalSearch.rankCritery}" >
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Номер"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{rank.rankID}" />
+			</rich:column>
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Име"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{rank.rankName}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Описание"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{rank.description}" />
+			</rich:column>
+			<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Роля"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{rank.role}" />
+			</rich:column>
+        </rich:dataTable>
+        
+        <rich:dataTable style="width:100%;margin-left:auto; margin-right:auto;" var="user" value="#{globalSearch.u}" rendered="#{globalSearch.userCritery}" >
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Номер"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.userID}" />
+			</rich:column>
+        	<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Име"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.firstName}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Фамилия"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.lastName}" />
+			</rich:column>
+			<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Адрес"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.address}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Телефон"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.phone}" />
+			</rich:column>
+				<rich:column>
+  				<f:facet name="header">
+  					<h:outputText value="Електронна поща"/>
+ 				 </f:facet> 
+   				<h:outputText value="#{user.email}" />
+			</rich:column>
+        </rich:dataTable>
+        
+        </h:form>
+        
         </h:panelGrid>
     </rich:panel>
 </div>
