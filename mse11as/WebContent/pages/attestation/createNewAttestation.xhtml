@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="template/attestations.html">
+
+	<ui:define name="title">Attestation | Create New Attestation</ui:define>
+	<ui:define name="body">
+		<h1>Създаване на нова атестация</h1>
+		<div id="attestation">
+			<rich:panel>
+				<h:form>
+					<table>
+						<tr><td>Заглавие:</td><td><h:inputText value="" style="width:440px" /> </td></tr>
+						<tr><td>Брой въпроси:</td><td><h:inputText value="" style="width:40px"/> </td></tr>
+						<tr><td>Описание:</td><td><h:inputTextarea value="" rows="5" cols="80" /> </td></tr>
+						<tr><td><h:commandButton styleClass="btnGenerateAttestation" value="Генерирай тест"></h:commandButton></td></tr>
+					</table>
+				</h:form>
+			</rich:panel>
+		</div>
+	</ui:define>
+</ui:composition>
