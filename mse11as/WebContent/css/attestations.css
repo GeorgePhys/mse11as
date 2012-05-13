@@ -1,0 +1,34 @@
+input[type="text"]{
+	height:20px;
+	color:#252525;
+	width: 200px;
+}
+select {
+	height:18px;
+	color:#252525;
+}
+textarea, input[type="text"], input[type="password"], select {
+	background: #ffffff !important;
+}
+#attestation {
+	width:100%;
+	height: 500px;
+}
+#content {
+	height: 500px;
+}
+#attestation{
+	position: relative;
+}
+#formAttestation {
+	position: absolute;
+	top: 50px;
+	left: 120px;
+	width: 500px;
+}
+#formAttestation .btnGenerate, #attestation .btnGenerateAttestation, .btn{
+	margin-top: 5px;
+	width:120px;
+	height: 28px;
+	color:#ffffff;
+}
