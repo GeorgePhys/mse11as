@@ -13,10 +13,12 @@
 			<rich:panel>
 				<h:form>
 					<table>
-						<tr><td>Заглавие:</td><td><h:inputText value="" style="width:440px" /> </td></tr>
-						<tr><td>Брой въпроси:</td><td><h:inputText value="" style="width:40px"/> </td></tr>
-						<tr><td>Описание:</td><td><h:inputTextarea value="" rows="5" cols="80" /> </td></tr>
-						<tr><td><h:commandButton styleClass="btnGenerateAttestation" value="Генерирай тест"></h:commandButton></td></tr>
+						<tr><td>Заглавие:</td><td><h:inputText style="width:440px" /> </td></tr>
+						<tr><td>Брой въпроси:</td><td><h:inputText style="width:40px"/> </td></tr>
+						<tr><td>Описание:</td><td><h:inputTextarea rows="5" cols="80" /> </td></tr>
+						<tr><td>
+							<h:commandButton styleClass="btnGenerateAttestation" action="/pages/attestation/createNewAttestationQuestions.xhtml" value="Генерирай атестация"/>
+						</td></tr>
 					</table>
 				</h:form>
 			</rich:panel>
