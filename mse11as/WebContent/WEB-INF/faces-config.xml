@@ -44,7 +44,6 @@
    <to-view-id>/pages/test-materials/createtest.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
- 
  	<navigation-rule>
  <from-view-id>*</from-view-id>
   <navigation-case>
@@ -76,4 +75,12 @@
    <to-view-id>/pages/test-materials/edittest.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+  
+ <navigation-rule>
+   <from-view-id>*</from-view-id>
+   <navigation-case>
+       <from-outcome>next</from-outcome>
+       <to-view-id>/pages/attestation/createNewAttestationQuestions.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
 </faces-config>
