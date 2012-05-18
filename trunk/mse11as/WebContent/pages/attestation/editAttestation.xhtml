@@ -8,11 +8,23 @@
 
 	<ui:define name="title">Attestation | Edit Attestation</ui:define>
 	<ui:define name="body">
-		<h1>Редакция на атестация</h1>
+		<h1>Редактиране на атестация</h1>
 		<div id="editAttestation">
 			<rich:panel>
 				<h:form>
-					
+					<table>
+						<tr><td>Заглавие:</td><td><h:inputText style="width:443px" value="Годишна атестация"/> </td></tr>
+						<tr><td>Брой въпроси:</td><td><h:inputText style="width:40px" value="5" disabled="true"/> </td></tr>
+						<tr><td>Описание:</td><td><h:inputTextarea rows="5" cols="80" /> </td></tr>
+						<tr><td>Въпрос 1:</td><td><h:inputText value="Оценете способността за работа в екип на служителя." style="width:443px" /> </td></tr>
+						<tr><td>Въпрос 2:</td><td><h:inputText value="Поставете оценка за мотивацията на служителя." style="width:443px" /> </td></tr>
+						<tr><td>Въпрос 3:</td><td><h:inputText value="Дайте оценка на комуникативността на служителя." style="width:443px" /> </td></tr>
+						<tr><td>Въпрос 4:</td><td><h:inputText value="Оценете качеството на работа на служителя." style="width:443px" /> </td></tr>
+						<tr><td>Въпрос 5:</td><td><h:inputText value="Поставете оценка на способността на служителя да спазва зададени срокове." style="width:443px" /> </td></tr>
+						<tr><td>
+							<h:commandButton styleClass="btnEditAttestation" value="Редактирай атестация"/>
+						</td></tr>
+					</table>
 				</h:form>
 			</rich:panel>
 		</div>

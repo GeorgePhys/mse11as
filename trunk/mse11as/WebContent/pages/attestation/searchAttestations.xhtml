@@ -9,19 +9,22 @@
 	<ui:define name="title">Attestation | Search Attestations</ui:define>
 	<ui:define name="body">
 		<h1>Търсене на атестация</h1>
-		<div id="searchAttestations">
+		<div id="searchAttestation">
 			<rich:panel>
 				<h:form>
 					<table>
 						<tr>
 							<td><h:selectOneMenu style="width:100px;"
-									value=""></h:selectOneMenu></td>
+									value="">
+								<f:selectItem id="item1" itemLabel="Заглавие" itemValue="1" />
+  								<f:selectItem id="item2" itemLabel="Брой въпроси" itemValue="2" />	
+								</h:selectOneMenu></td>
 						</tr>
 						<tr>
 							<td>Въведи ключова дума:</td>
 							<td><h:inputText style="width:300px;"
 									value="" /></td>
-							<td><a4j:commandButton
+							<td><a4j:commandButton styleClass="btnSearchAttestation"
 									value="Търсене" /></td>
 						</tr>
 					</table>
