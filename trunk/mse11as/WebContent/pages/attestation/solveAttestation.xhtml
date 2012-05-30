@@ -12,7 +12,7 @@
 		<div id="solveAttestation">
 			<rich:panel>
 				<h:form>
-					<tr><td><font color="red"><b>Моля поставете оценка по десетобалната система на атестирания служител.</b></font></td></tr><br/><br/>
+					<tr><td><font color="red"><b>Моля поставете оценка по десетобалната система на атестирания служител, като 1 е най-ниската, а 10 най-високата оценка.</b></font></td></tr><br/><br/>
 					<tr><td>Атестиран служител:</td><td><b>Иван Иванов</b></td></tr><br/><br/>
 					<tr><td>Въпрос 1:</td><td> Оценете способността за работа в екип на служителя.</td></tr>
 						<tr><td><h:selectOneRadio value="">
@@ -79,7 +79,9 @@
    							<f:selectItem itemLabel="9" itemValue="9" />
 							<f:selectItem itemLabel="10" itemValue="10" />
 						</h:selectOneRadio></td></tr><br/>
-						<tr><td><h:commandButton styleClass="btnSolveAttestation" value="Запази"></h:commandButton></td></tr>
+						<tr><td><h:commandButton styleClass="btnSolveAttestation" value="Запази"></h:commandButton></td>
+							<td><h:commandButton styleClass="btnSolveAttestation" value="Откажи"></h:commandButton></td>
+						</tr>
 				</h:form>
 			</rich:panel>
 		</div>
