@@ -32,7 +32,7 @@
 		
 		<table>
 		<tr>
-		<td>Изберете роля</td>
+		<td><span style="color:red;">* </span>Изберете роля</td>
 		<td>
 		<h:selectOneMenu id="roleselect" requiredMessage=" моля изберете роля"  required="true" value="#{rangActions.status}"  >
 			<f:selectItem itemValue="" itemLabel="------"/>
@@ -42,13 +42,13 @@
 		</td>
 		</tr>
 		<tr>
-			<td>Име на ранг</td>
+			<td><span style="color:red;">* </span>Име на ранг</td>
 			<td><h:inputText id="rankname" requiredMessage=" въведете име на ранг" required="true" value="#{rangActions.rank.rankName}" />
 			<h:message style="color:red;" for="rankname"> </h:message>
 			 </td>
 		</tr>
 			<tr>
-			<td>Описание на ранг</td>
+			<td><span style="color:red;">* </span>Описание на ранг</td>
 			<td><h:inputTextarea id="rankdescr" requiredMessage=" въведете описание на ранг" required="true" value="#{rangActions.rank.description}" />
 			<h:message style="color:red;" for="rankdescr"> </h:message>
 			 </td>

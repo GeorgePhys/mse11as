@@ -7,6 +7,8 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import as.entities.Rank;
 import as.entities.Role;
@@ -58,10 +60,14 @@ public class RangsActions {
 		this.rank = rank;
 	}
 	
-	public void save(Rank rA , String g){
+	public String save(Rank rA , String g){
 		Role tempRole = this.globalService.findRole(g);
 		rA.setRole(tempRole);
 		this.globalService.save(rA);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(true);
+		session.removeAttribute("rangActions");
+		return "RoleDone";
 	}
 	
 }
