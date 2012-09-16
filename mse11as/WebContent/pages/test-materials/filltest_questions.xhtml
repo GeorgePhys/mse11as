@@ -13,22 +13,25 @@
 	<h1>Попълнете въпросите и отговорите</h1>
 	<div id="notes">
 		<p>Моля въведете въпрос и конкретни отговори !</p>
-		<p>В полето 'отговор', въведете правилният. </p>
+		<p>В полето 'отговор', въведете правилният ! </p>
+		<p>Обузначените със <span style="color:red;">*</span> полета са задължителни !</p>
+		
 	</div>
     <rich:panel style="height: auto; width:83%;">
     <h:form id="sdsdsdsd" name="sdasad">
     	<div id="formTest2">
     	 <table>
-    	 <ui:repeat var="q" value="#{tq.questions}">
-    		<tr ><td>Въведете въпрос и брой конкретни отговори: </td><td></td></tr>
-    		<tr><td><h:inputTextarea  value="#{q.question}" cols="80" rows="2" /></td></tr>
-    		<tr><td >Верен отговор: </td></tr>
-    			<ui:repeat var="s" value="#{q.testAnswers}">
-    				<tr><td><h:selectBooleanCheckbox value="#{s.answerVal}" /> <h:inputText value="#{s.answer}" /></td></tr>
+    	 <ui:repeat var="q" value="#{tq.questions}" varStatus="status">
+    		<tr ><td><span style="color:red;">* </span>Въведете въпрос и брой конкретни отговори: </td><td></td></tr>
+    		<tr><td><h:inputTextarea id="status" requiredMessage=" празно поле" required="true"  value="#{q.question}" cols="80" rows="2" /> <h:message style="color:red;" for="status"> </h:message></td></tr>
+    		<tr><td ><span style="color:red;">* </span>Верен отговор: </td></tr>
+    			<ui:repeat var="s" value="#{q.testAnswers}" varStatus="sd">
+    				<tr><td><h:selectBooleanCheckbox value="#{s.answerVal}" /> <h:inputText id="sd" requiredMessage=" празно поле" required="true" value="#{s.answer}" /> <h:message style="color:red;" for="sd"> </h:message></td></tr>
     			</ui:repeat>
     		</ui:repeat>
 		</table>         
      		<h:commandButton styleClass="btn" action="#{tq.save(tq.questions)}" value="Запази" />
+     		<h:commandButton styleClass="btn" action="#{tq.cancel()}" value="Отмяна" immediate="true" />
     	</div>
     	 </h:form>
     </rich:panel>

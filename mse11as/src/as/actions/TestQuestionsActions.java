@@ -42,12 +42,12 @@ public class TestQuestionsActions implements Serializable {
 	// questions for the specific test
 	private ArrayList<TestQuestions> questions = new ArrayList<TestQuestions>();
 	// converted test questions for table inport
-	
+
 	private ArrayList<TestAnswers> tAnswerArr = new ArrayList<TestAnswers>();
-	
+
 	private List<TestAnswers> tAnswers;
 	private List<TestAnswers> list = new LinkedList<TestAnswers>();
-	
+
 	@EJB
 	private TestsService ts;
 	private Set<TestQuestions> set = new HashSet<TestQuestions>();
@@ -68,16 +68,16 @@ public class TestQuestionsActions implements Serializable {
 		for (int i = 0; i < this.t.getNumQuestions(); i++) {
 			TestQuestions testQuestionTemp = new TestQuestions();
 			tAnswers = new LinkedList<TestAnswers>();
-			for(int j=0;j<this.t.getNumAnswPerQuestion();j++){
+			for (int j = 0; j < this.t.getNumAnswPerQuestion(); j++) {
 				TestAnswers dom = new TestAnswers();
 				dom.setTestQuestions(testQuestionTemp);
 				tAnswers.add(dom);
 			}
 			testQuestionTemp.setTestAnswers(tAnswers);
 			this.questions.add(testQuestionTemp);
-			
+
 		}
-		
+
 	}
 
 	public List<TestAnswers> getList() {
@@ -103,12 +103,12 @@ public class TestQuestionsActions implements Serializable {
 	public void setQuestions(ArrayList<TestQuestions> questions) {
 		this.questions = questions;
 	}
-	
-	public List<TestAnswers> getListFromSet(Set<TestAnswers> set){
+
+	public List<TestAnswers> getListFromSet(Set<TestAnswers> set) {
 		list = new ArrayList<TestAnswers>(set);
 		return list;
 	}
-	
+
 	public List<TestAnswers> getMp() {
 		return mp;
 	}
@@ -120,11 +120,10 @@ public class TestQuestionsActions implements Serializable {
 	public Tests getT() {
 		return t;
 	}
+
 	public void setT(Tests t) {
 		this.t = t;
 	}
-
-	
 
 	public List<TestAnswers> gettAnswers() {
 		return tAnswers;
@@ -146,21 +145,26 @@ public class TestQuestionsActions implements Serializable {
 			TestQuestions tq = d.get(i);
 			tq.setTestID(this.t);
 			this.set.add(tq);
-			
+
 		}
 		this.t.setTestQuestions(this.set);
 		this.ts.save(t);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-			    .getExternalContext().getSession(true);
-			    session.removeAttribute("t");
-			    session.removeAttribute("tq");
-System.out.println("here");
+				.getExternalContext().getSession(true);
+		session.removeAttribute("t");
+		session.removeAttribute("tq");
+		System.out.println("here");
 		return "ok";
 	}
-	public String cancel(){
+
+	public String cancel() {
 		this.ts.remove(this.t);
 		this.questions = null;
 		this.t = null;
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(true);
+		session.removeAttribute("t");
+		session.removeAttribute("tq");
 		return "CancelCreateTest";
 	}
 }
