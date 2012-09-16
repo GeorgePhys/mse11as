@@ -4,6 +4,9 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
 import as.entities.Tests;
 import as.services.TestsService;
 
@@ -27,6 +30,7 @@ public class TestsActions implements Serializable {
 	}
 
 	public String save(Tests test) {
+		   
 		return "do";
 	}
 

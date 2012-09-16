@@ -10,13 +10,15 @@
 <ui:define name="body">
 <div id="test">
 <h1>Създаване на тест</h1>
+
 <h:form id="dgp" >
 	<rich:panel style="height: 500px; width:100%;">
     	<div id="formTest">
     	<h1>Настройки</h1>
-    	
     	<table>
-    		<tr><td class="t">Заглавие на теста</td><td><h:inputText value="#{t.test.testName}" /> </td></tr>
+    		<tr><td class="t">Заглавие на теста</td><td><h:inputText id="title" label="Title" required="true" value="#{t.test.testName}">
+    		
+    		</h:inputText><h:message for="title"></h:message>  </td></tr>
     		
     		<tr><td class="t">Описание на теста</td><td><h:inputTextarea value="#{t.test.description}" rows="5" cols="40" /></td></tr>
     		

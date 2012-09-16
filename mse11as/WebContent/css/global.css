@@ -256,3 +256,6 @@ h1 a:hover, h2 a:hover {
 	text-decoration:none;
 	color:#000000;
 }
+textarea, input[type="text"], input[type="password"], select {
+	background: none !important;
+}

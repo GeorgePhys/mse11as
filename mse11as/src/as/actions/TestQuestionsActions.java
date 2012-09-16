@@ -17,7 +17,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
+import javax.servlet.http.HttpSession;
 
 import as.entities.File;
 import as.entities.TestAnswers;
@@ -148,7 +150,11 @@ public class TestQuestionsActions implements Serializable {
 		}
 		this.t.setTestQuestions(this.set);
 		this.ts.save(t);
-		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+			    .getExternalContext().getSession(true);
+			    session.removeAttribute("t");
+			    session.removeAttribute("tq");
+System.out.println("here");
 		return "ok";
 	}
 	public String cancel(){
