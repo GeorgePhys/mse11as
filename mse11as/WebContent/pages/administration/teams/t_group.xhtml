@@ -9,18 +9,23 @@
 <ui:define name="title">Administration | Add Group</ui:define>
 <ui:define name="body">
 <h1>Администрация <span>: Добави Група</span></h1>
+<p>Обузначените със <span style="color:red;">*</span> полета са задължителни !</p>
 <div id="addGroup">
 <h:form id="groupform">
  		<rich:panel header="Данни за групата" style="position: relative;">
  			
  				<table>
             	<tr>
-            		<td class="txtRight"><span>*</span>Име на група</td>
-            		<td><h:inputText value="#{groupActions.currentGroup.groupName}" /> </td>
+            		<td class="txtRight"><span style="color:red;">*</span>Име на група</td>
+            		<td><h:inputText id="gname" requiredMessage=" празно поле"  required="true" value="#{groupActions.currentGroup.groupName}" /> 
+            		<h:message style="color:red;" for="gname"> </h:message>
+            		</td>
             	</tr>
             	<tr>
-            		<td class="txtRight" style="position:relative"><span class="specificLabel">* Описание</span></td>
-            		<td><h:inputTextarea  value="#{groupActions.currentGroup.description}" cols="60" rows="10"  /> </td>
+            		<td class="txtRight" style="position:relative"><span class="specificLabel2"><span style="color:red;">*</span> Описание</span></td>
+            		<td><h:inputTextarea id="gdescr" requiredMessage=" празно поле"  required="true" value="#{groupActions.currentGroup.description}" cols="70" rows="10"  /> 
+            		<h:message style="color:red;" for="gdescr"> </h:message>
+            		</td>
             	</tr>
             	</table>
             	</rich:panel>

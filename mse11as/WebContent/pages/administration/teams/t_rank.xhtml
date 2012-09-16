@@ -34,24 +34,32 @@
 		<tr>
 		<td>Изберете роля</td>
 		<td>
-		<h:selectOneMenu value="#{rangActions.status}"  >
+		<h:selectOneMenu id="roleselect" requiredMessage=" моля изберете роля"  required="true" value="#{rangActions.status}"  >
 			<f:selectItem itemValue="" itemLabel="------"/>
 		  	<f:selectItems value="#{rangActions.mRole}" var="br" itemLabel="#{br.roleName}" itemValue="#{br.roleID}" />
 		</h:selectOneMenu>
+		<h:message style="color:red;" for="roleselect"> </h:message>
 		</td>
 		</tr>
 		<tr>
 			<td>Име на ранг</td>
-			<td><h:inputText value="#{rangActions.rank.rankName}" /> </td>
+			<td><h:inputText id="rankname" requiredMessage=" въведете име на ранг" required="true" value="#{rangActions.rank.rankName}" />
+			<h:message style="color:red;" for="rankname"> </h:message>
+			 </td>
 		</tr>
 			<tr>
 			<td>Описание на ранг</td>
-			<td><h:inputTextarea value="#{rangActions.rank.description}" /> </td>
+			<td><h:inputTextarea id="rankdescr" requiredMessage=" въведете описание на ранг" required="true" value="#{rangActions.rank.description}" />
+			<h:message style="color:red;" for="rankdescr"> </h:message>
+			 </td>
 		</tr>
 		
 			<tr>
 			<td></td>
-			<td><a4j:commandButton styleClass="btnSubmit" style="margin-left: 0px;" action="#{rangActions.save(rangActions.rank,rangActions.status)}" value="Запамети" type="button"  /></td>
+			<td>
+			<h:commandButton styleClass="btnSubmit" style="margin-left: 0px;" action="#{rangActions.save(rangActions.rank,rangActions.status)}" value="Запамети">
+    			</h:commandButton>
+			</td>
 		</tr>
 		</table>
 	</h:form>

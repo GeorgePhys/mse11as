@@ -28,18 +28,21 @@
 	<p>Обузначените със <span style="color:red;">*</span> полета са задължителни !</p>
 	<div id="addRole">
 	
-	<h:form>
-		<table>
+	<h:form id="rolemanage">
+		<table id="rm">
             	<tr>
-            		<td ><span>*</span>Име</td>
-            		<td><h:inputText value="#{personPosition.currentRole.roleName}" /> </td>
+            		<td ><span style="color:red;">*</span>Име</td>
+            		<td><h:inputText id="rname" requiredMessage=" празно поле"  required="true" value="#{personPosition.currentRole.roleName}" ></h:inputText> <h:message style="color:red;" for="rname"> </h:message></td>
             	</tr>
             	<tr>
-            		<td class="txtRight" style="position:relative"><span class="specificLabel2">* Описание</span></td>
-            		<td><h:inputTextarea  value="#{personPosition.currentRole.description}" cols="60" rows="10" /> </td>
+            		<td class="txtRight" style="position:relative"><span style="color:red;">* </span><span class="specificLabel3">Описание</span></td>
+            		<td><h:inputTextarea id="rrole" requiredMessage=" празно поле" required="true" value="#{personPosition.currentRole.description}" cols="60" rows="10" /> 
+            		<h:message style="color:red;" for="rrole"> </h:message>
+            		</td>
             	</tr>
             	</table>
-            	        <a4j:commandButton styleClass="btnSubmit" action="#{personPosition.save(personPosition.currentRole)}" value="Запамети" type="button"  />
+            	<h:commandButton styleClass="btnSubmit" action="#{personPosition.save(personPosition.currentRole)}" value="Запамети">
+    			</h:commandButton>
 	</h:form>
            
 
