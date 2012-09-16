@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import as.entities.Group;
 import as.entities.Tests;
@@ -31,6 +33,9 @@ public class GroupActions {
 	
 	public String save(Group g){
 		groupService.save(g);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(true);
+		session.removeAttribute("groupActions");
 		return "GroupComplete";
 	}
 	
