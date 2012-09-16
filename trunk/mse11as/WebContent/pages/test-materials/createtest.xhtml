@@ -5,29 +5,33 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
     template="template/test-materials.xhtml"> 
-      
+      <h:outputStylesheet>
+      .error{
+      	color:red;
+      }
+    </h:outputStylesheet>
 <ui:define name="title">Administration | Create Test</ui:define>
 <ui:define name="body">
 <div id="test">
 <h1>Създаване на тест</h1>
-
+<p>Обузначените със <span style="color:red;">*</span> полета са задължителни !</p>
 <h:form id="dgp" >
 	<rich:panel style="height: 500px; width:100%;">
     	<div id="formTest">
     	<h1>Настройки</h1>
     	<table>
-    		<tr><td class="t">Заглавие на теста</td><td><h:inputText id="title" label="Title" required="true" value="#{t.test.testName}">
+    		<tr><td class="t"><span style="color:red;">* </span>Заглавие на теста</td><td><h:inputText id="title" requiredMessage=" празно поле" label="title" required="true" value="#{t.test.testName}">
     		
-    		</h:inputText><h:message for="title"></h:message>  </td></tr>
+    		</h:inputText> <h:message style="color:red;"  for="title"> </h:message></td></tr>
     		
-    		<tr><td class="t">Описание на теста</td><td><h:inputTextarea value="#{t.test.description}" rows="5" cols="40" /></td></tr>
+    		<tr><td class="t"><span style="color:red;">* </span>Описание на теста</td><td><h:inputTextarea id="description" value="#{t.test.description}" requiredMessage=" празно поле" label="description" required="true" rows="5" cols="40" /> <h:message style="color:red;" for="description"> </h:message></td></tr>
     		
-    		<tr><td class="t">Брой въпроси</td><td><h:inputText style="width:25px;" value="#{t.test.numQuestions}" /></td></tr>
+    		<tr><td class="t"><span style="color:red;">* </span>Брой въпроси</td><td><h:inputText validatorMessage=" изберете в границата [2-100]" id="questions" style="width:25px;" value="#{t.test.numQuestions}"><f:validateLongRange minimum="2" maximum="100" /></h:inputText> <h:message style="color:red;"  for="questions"></h:message></td></tr>
     		
-    		<tr><td class="t">Брой отговори за въпрос</td><td><h:inputText style="width:25px;" value="#{t.test.numAnswPerQuestion}" /></td></tr>
+    		<tr><td class="t"><span style="color:red;">* </span>Брой отговори за въпрос</td><td><h:inputText validatorMessage=" изберете в границата [2-11]" id="answers" style="width:25px;" value="#{t.test.numAnswPerQuestion}"><f:validateLongRange minimum="2" maximum="11" /></h:inputText> <h:message style="color:red;"  for="answers"></h:message></td></tr>
     		
 			<tr><td class="t">Точкова система</td><td>
-			<h:selectOneMenu value="#{t.test.pointSystem}" >
+			<h:selectOneMenu  value="#{t.test.pointSystem}" >
 				<f:selectItem itemLabel="ДА" itemValue="0" />
 				<f:selectItem itemLabel="НЕ" itemValue="1" />
 			</h:selectOneMenu>
