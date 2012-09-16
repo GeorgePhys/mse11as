@@ -16,6 +16,7 @@ h1{
 	margin-left: auto;
 	margin-right: auto;
 }
+
 #administration_main table td{
 	padding-top:10px;
 	padding-right:20px;
@@ -105,6 +106,19 @@ table td{
     top: 2px;
     left: 20px;
 }
+.specificLabel2 {
+    position:absolute;
+    top: 140px;
+    left: 20px;
+}
+.specificLabel3 {
+    position:absolute;
+    top: 2px;
+    left: 7px;
+}
+#rm td{
+	padding-right:40px;
+}
 #addGroup .btnSubmitUserAdd,#addRole .btnSubmit {
 	margin-top: 5px;
 	   margin-left: 66px;
@@ -141,6 +155,7 @@ table td{
 }
 #searchVariants p input[type="checkbox"]{
 	margin-right: 5px;
+	width:0px !important;
 }
 #sr #j_idt14 {
 	position:absolute;

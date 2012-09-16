@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import as.entities.Role;
 import as.services.GlobalService;
@@ -40,8 +42,12 @@ public class ManagePositions {
 		this.availableRoles = availableRoles;
 	}
 
-	public <E> void save(E entity){
+	public <E> String save(E entity){
 		this.globalService.save(entity);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(true);
+		session.removeAttribute("personPosition");
+		return "RoleDone";
 	}
 
 
