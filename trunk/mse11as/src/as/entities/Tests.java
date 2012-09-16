@@ -16,41 +16,45 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- * @author Stefan Stefanov
- * @dFeb 19, 2012
+ * Represent entity class for table 'test'
+ * 
+ * @author Tsvetomir Dimitrov
+ * 
  */
 @Entity
 public class Tests extends as.entities.Entity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long testID;
+	private static final long serialVersionUID = 1L;
 
-    @Column(columnDefinition = "Varchar(150)")
-    private String testName;
-    
-    @Column(columnDefinition = "Varchar(150)")
-    private String description;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "testID")
-    private Set<TestQuestions> testQuestions = new LinkedHashSet<TestQuestions>();
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long testID;
 
-    @Column(columnDefinition = "Integer")
-    private int numQuestions;
-    
-    @Column(columnDefinition = "Integer")
-    private int numAnswPerQuestion;
-    
-    @Column(columnDefinition = "Integer")
-    private int pointSystem;
-    
-    @Column(columnDefinition = "Integer")
-    private int level;
-    
-    @Column(columnDefinition = "Integer")
-    private int showResult;
-    
-    public int getShowResult() {
+	@Column(columnDefinition = "Varchar(150)")
+	private String testName;
+
+	@Column(columnDefinition = "Varchar(150)")
+	private String description;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "testID")
+	private Set<TestQuestions> testQuestions = new LinkedHashSet<TestQuestions>();
+
+	@Column(columnDefinition = "Integer")
+	private int numQuestions;
+
+	@Column(columnDefinition = "Integer")
+	private int numAnswPerQuestion;
+
+	@Column(columnDefinition = "Integer")
+	private int pointSystem;
+
+	@Column(columnDefinition = "Integer")
+	private int level;
+
+	@Column(columnDefinition = "Integer")
+	private int showResult;
+
+	public int getShowResult() {
 		return showResult;
 	}
 
@@ -59,18 +63,17 @@ public class Tests extends as.entities.Entity implements Serializable {
 	}
 
 	@Column(columnDefinition = "Varchar(150)")
-    private String msg;
-    
-    
-    public Set<TestQuestions> getTestQuestions() {
-	return testQuestions;
-    }
+	private String msg;
 
-    public void setTestQuestions(Set<TestQuestions> testQuestions) {
-	this.testQuestions = testQuestions;
-    }
+	public Set<TestQuestions> getTestQuestions() {
+		return testQuestions;
+	}
 
-    public int getNumQuestions() {
+	public void setTestQuestions(Set<TestQuestions> testQuestions) {
+		this.testQuestions = testQuestions;
+	}
+
+	public int getNumQuestions() {
 		return numQuestions;
 	}
 
@@ -110,27 +113,27 @@ public class Tests extends as.entities.Entity implements Serializable {
 		this.msg = msg;
 	}
 
-    public Long getTestID() {
-	return testID;
-    }
+	public Long getTestID() {
+		return testID;
+	}
 
-    public void setTestID2(Long testID) {
-	this.testID = testID;
-    }
+	public void setTestID2(Long testID) {
+		this.testID = testID;
+	}
 
-    public String getTestName() {
-	return testName;
-    }
+	public String getTestName() {
+		return testName;
+	}
 
-    public void setTestName(String testName) {
-	this.testName = testName;
-    }
+	public void setTestName(String testName) {
+		this.testName = testName;
+	}
 
-    public String getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
-	this.description = description;
-    }
+		this.description = description;
+	}
 }

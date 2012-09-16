@@ -107,9 +107,13 @@ table td{
 }
 #addGroup .btnSubmitUserAdd,#addRole .btnSubmit {
 	margin-top: 5px;
+	   margin-left: 66px;
 	width:120px;
 	height: 28px;
 	color:#ffffff;
+}
+#j_idt9 input,#j_idt9 select,#j_idt9 textarea{
+	width: 250px;
 }
 #addGroup .txtRight {
 	text-align: right;
