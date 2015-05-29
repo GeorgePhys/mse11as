@@ -1,0 +1,1 @@
+Information system for appraisal of employees in small and / or medium-sized company
